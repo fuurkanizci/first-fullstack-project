@@ -67,7 +67,7 @@ include "db.php";
                 <li class="list-none   text-white no-underline "><?= $services ?></li>
                 <li class="list-none   text-white no-underline "><?= $contact ?></li>
             </ul>
-            <p class=""> designed by Furkanİzci</p>
+            <p class="absolute left-[45%] bottom-2 text-[#f0a500]"> designed by Furkanİzci</p>
         </div>
     </div>
 </footer>
