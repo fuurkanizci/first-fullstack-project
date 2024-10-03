@@ -14,6 +14,8 @@ if ($data->num_rows > 0) {
         <div>" . $row['icerik'] . "</div>
         <div style='height: 10px;'></div>
         <div style='color: gray;'>" . $row['kategori'] . "</div>
+        <a href = '../crud/deletee.php?id=" . $row['id'] . "' style='color: red;'>Sil</a>
+                <a href ='../crud/update.php?id=" . $row ['id'] . "'>Güncelle</a>
       </div>";
 
     }
