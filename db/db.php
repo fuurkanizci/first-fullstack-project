@@ -9,4 +9,5 @@ if (!$deneme) {
 
 // UTF-8 karakter setini ayarla
 mysqli_set_charset($deneme, "utf8");
+
 ?>

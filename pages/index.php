@@ -14,22 +14,32 @@ include('/Applications/XAMPP/xamppfiles/htdocs/first-project/db/data.php');
     <link rel="stylesheet" href="./node_modules/tailwindcss/tailwind.css">
     <link rel="stylesheet" href="./style.css">
 </head>
-<header class="childs-colors text-white box-border">
-    <div class="">
-        <h1 class="flex flex-col justify-center items-center text-3xl text-[#f0a500]"><?= $myWeb ?></h1>
-    </div>
-    <nav class="flex justify-center items-center p-5">
-        <ul class="list-image-none flex">
-            <li class="m-[15px] "><a class="text-white no-underline" href="#home"><?= $home ?></a></li>
-            <li class="m-[15px] "><a class="text-white no-underline" href="#about"><?= $aboutUs ?></a></li>
-            <li class="m-[15px] "><a class="text-white no-underline" href="#services"><?= $services ?></a></li>
-            <li class="m-[15px] "><a class="text-white no-underline hover:text-cyan-700 max-md:p-[40px]"
-                                     href="#contact"><?= $contact ?></a></li>
-        </ul>
-    </nav>
-</header>
-<body class="h-full w-full font-serif overflow-hidden">
 
+<header>
+    <div class="childs-colors text-white box-border">
+        <div>
+            <h1 class="flex flex-col justify-center items-center text-3xl text-[#f0a500]"><?= $myWeb ?></h1>
+        </div>
+        <nav class="flex justify-center items-center p-5">
+            <ul class="list-image-none flex">
+                <li class="m-[15px] "><a class="text-white no-underline" href="#home"><?= $home ?></a></li>
+                <li class="m-[15px] "><a class="text-white no-underline" href="#about"><?= $aboutUs ?></a></li>
+                <li class="m-[15px] "><a class="text-white no-underline" href="#services"><?= $services ?></a></li>
+                <li class="m-[15px] "><a class="text-white no-underline " href="#contact"><?= $contact ?></a></li>
+            </ul>
+
+            <div class="flex flex-row absolute right-6">
+                <button id="newsButton"
+                        class="  p-2 border rounded-2xl bg-[#f0a500] mr-5 hover:bg-[#F2B631]"><?= $newsAdd ?></button>
+                <button id="eventsButton"
+                        class="p-2 border rounded-2xl bg-[#f0a500] hover:bg-[#F2B631]"><?= $eventsAdd ?></button>
+            </div>
+        </nav>
+
+    </div>
+</header>
+
+<body class="h-full w-full font-serif overflow-hidden">
 <?php
 $deneme = mysqli_connect("127.0.0.1", "root", "", "proje-1-haberler");
 $sorgu = "SELECT * FROM video";
@@ -42,8 +52,8 @@ if (!$data) {
 // Videoyu döngü ile çekme
 while ($row = mysqli_fetch_assoc($data)) { // MYSQL_ASSOC yerine mysqli_fetch_assoc kullanabilirsiniz
     $vid = $row['name'];
-    echo "<video class='w-full h-full left-0 top-0' autoplay muted loop>
-            <source type='video/mp4' src='". $vid ."'>
+    echo "<video class='w-  h-screen left-0 top-0' autoplay muted loop>
+            <source type='video/mp4' src='" . $vid . "'>
           </video>"; // PHP kodu içinde $vid değişkenini kullanmak için doğrudan PHP yazım stilini kullanın
 }
 
@@ -67,6 +77,7 @@ while ($row = mysqli_fetch_assoc($data)) { // MYSQL_ASSOC yerine mysqli_fetch_as
             <ul class="list-none text-white no-underline pb-2">
                 <li class="list-none text-white no-underline"><?= $eventsSoftware ?></li>
                 <li class="list-none text-white no-underline"><?= $eventsDev ?></li>
+
                 <li class="list-none text-white no-underline"><?= $eventsOnline ?></li>
             </ul>
         </div>
@@ -83,6 +94,14 @@ while ($row = mysqli_fetch_assoc($data)) { // MYSQL_ASSOC yerine mysqli_fetch_as
             <p class="absolute left-[45%] bottom-2 text-[#f0a500]"> <?= $designed ?></p>
         </div>
     </div>
+
 </footer>
+<script> document.getElementById("newsButton").addEventListener("click", function () {
+        window.location.href = "haber-ekleme.php";
+    });
+    document.getElementById("eventsButton").addEventListener("click", function () {
+        window.location.href = "etkinlik-ekleme.php";
+    });</script>
 </body>
+
 </html>
