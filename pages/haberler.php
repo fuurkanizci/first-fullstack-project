@@ -1,6 +1,6 @@
 <?php
 // Veritabanı bağlantısını dahil et
-include('/Applications/XAMPP/xamppfiles/htdocs/first-project/db/db.php');
+include('/Applications/XAMPP/xamppfiles/htdocs/first-fullstack-project/db/db.php');
 
 // Haberleri veritabanından çekme sorgusu
 $sorgu = "SELECT id, baslik, haber, kategori FROM news";
@@ -11,12 +11,6 @@ if (!$data) {
     die("Sorgu hatası: " . $deneme->error);
 }
 
-// Bağlantı kontrolü
-if (!$deneme) {
-    die("Veritabanı bağlantısı başarısız: " . mysqli_connect_error());
-} else {
-    echo "<div style='padding: 0px 95px; margin-top: 10px;'> Bağlantı başarılı</div>";
-}
 
 // Veritabanından haberleri çekme ve ekrana yazdırma
 if ($data->num_rows > 0) {
@@ -30,13 +24,15 @@ if ($data->num_rows > 0) {
             <div style='height: 20px;'></div>
             <div>
                 <a href = '../crud/delete.php?id=" . $row['id'] . "' style='color: red;'>Sil</a>
-                <a href ='../crud/update.php?id=" . $row ['id'] . "'>Güncelle</a>
+                <a href ='./update-from.php?id=" . $row ['id'] . "'>Güncelle</a>
 
             </div>
         </div>";
     }
 } else {
+
     echo "<div style='padding: 0px 95px;'>Hiç haber bulunamadı.</div>";
+    echo "<div style='padding: 0px 95px;'><a href='./haber-ekleme.php '>Eklemek İçin Tıklayın.</a></div>";
 }
 
 // Veritabanı bağlantısını kapatma

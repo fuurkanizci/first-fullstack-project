@@ -5,16 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Etkinlik Ekleme Formuna Hoşgeldiniz</title>
+    <title>Etkinlik Güncelleme Formuna Hoşgeldiniz</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./node_modules/tailwindcss/tailwind.css">
 </head>
 <body class="bg-gray-800">
 
-
-<p class="text-3xl justify-center flex dark:text-gray-400">Etkinlik Ekleme <br> Formuna Hoşgeldiniz</p>
-<form action="../db/create-events.php" method="post" class="max-w-md mx-auto mt-4">
+<p class="text-3xl justify-center flex dark:text-gray-400">Etkinlik Güncelleme <br> Formuna Hoşgeldiniz</p>
+<form action="../db/update-events.php" method="post" class="max-w-md mx-auto mt-4">
     <div class="relative z-0 w-full mb-5 group">
         <input type="text" name="etkinlik_basligi" id="etkinlik_basligi"
                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -42,7 +41,7 @@
 
     <button type="submit"
             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-       Paylaş
+        Güncelle
     </button>
 </form>
 

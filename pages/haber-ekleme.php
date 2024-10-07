@@ -13,6 +13,7 @@
 <body class="bg-gray-800">
 
 
+<p class="text-3xl justify-center flex dark:text-gray-400">Haber Ekleme <br> Formuna Hoşgeldiniz</p>
 <form action="../db/create-news.php" method="post" class="mt-4 max-w-md mx-auto ">
     <div class="relative z-0 w-full mb-5 group">
         <input type="text" name="haber_basligi" id="haber_basligi"

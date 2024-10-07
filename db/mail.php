@@ -34,9 +34,7 @@ $mail = new PHPMailer(true);  // PHPMailer objesini oluştur
 
         // E-postayı gönder
         $mail->send();
-        echo 'Paylaşım Başarıyla Gerçekleşti.';
     } catch (Exception $e) {
-        echo "Paylaşılamadı. Hata: {$mail->ErrorInfo}";
     }
 }
 

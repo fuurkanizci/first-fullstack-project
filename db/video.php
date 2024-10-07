@@ -14,7 +14,7 @@ if(isset($_POST['submit'])) {
 
     $filename = $_FILES['file']['name'];
     $tempname = $_FILES['file']['tmp_name'];
-    $folder = $_SERVER['DOCUMENT_ROOT'] . "/first-project/assets/videos/" . $filename;
+    $folder = $_SERVER['DOCUMENT_ROOT'] . "/first-fullstack-project/assets/videos/" . $filename;
 
     // Dosyayı yüklemeye çalış
     if (move_uploaded_file($tempname, $folder)) {

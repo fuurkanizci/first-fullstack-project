@@ -1,7 +1,7 @@
 <!doctype html>
 <?php
-include('/Applications/XAMPP/xamppfiles/htdocs/first-project/db/db.php');
-include('/Applications/XAMPP/xamppfiles/htdocs/first-project/db/data.php');
+include('/Applications/XAMPP/xamppfiles/htdocs/first-fullstack-project/db/db.php');
+include('/Applications/XAMPP/xamppfiles/htdocs/first-fullstack-project/db/data.php');
 ?>
 <html lang="en">
 <head>

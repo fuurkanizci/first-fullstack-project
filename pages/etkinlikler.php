@@ -1,5 +1,5 @@
 <?php
-include('/Applications/XAMPP/xamppfiles/htdocs/first-project/db/db.php');
+include('/Applications/XAMPP/xamppfiles/htdocs/first-fullstack-project/db/db.php');
 
 // Veritabanından haberleri çekme
 $sorgu = "SELECT id, baslik, icerik, kategori FROM events";
@@ -15,12 +15,12 @@ if ($data->num_rows > 0) {
         <div style='height: 10px;'></div>
         <div style='color: gray;'>" . $row['kategori'] . "</div>
         <a href = '../crud/deletee.php?id=" . $row['id'] . "' style='color: red;'>Sil</a>
-                <a href ='../crud/update.php?id=" . $row ['id'] . "'>Güncelle</a>
+                <a href ='./updatee-from.php?id=" . $row ['id'] . "'>Güncelle</a>
       </div>";
 
     }
 } else {
-    echo "0 results";
+    echo "<div style='align-items: center; font-size: large; justify-content: center; color: #003cff; '><a href='./etkinlik-ekleme.php'>EKLEMEK İÇİN TIKLAYIN.</a>";
 }
 if (!$deneme) {
     echo "Connection failed: " . mysqli_connect_error();
