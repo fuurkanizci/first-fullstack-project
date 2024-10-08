@@ -1,7 +1,6 @@
 <?php
 include '../db/db.php';
-echo "<link rel='stylesheet' href='./node_modules/tailwindcss/tailwind.css'>
-    <link rel='stylesheet' href='./login.css'>";
+echo "<link rel='stylesheet' href='./node_modules/tailwindcss/tailwind.css'>";
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']); // Güvenlik için ID'yi int çeviriyoruz
 
@@ -12,7 +11,7 @@ if (isset($_GET['id'])) {
 
     if ($stmt->execute()) {
         echo "Etkinlik başarıyla silindi.";
-        echo "<a href='../pages/etkinlikler.php'>Geri Dönünüz</a>";
+        header ("Refresh:2; ../pages/etkinlikler.php");
         exit();
     } else {
         echo "Silme işlemi başarısız: " . $deneme->error;

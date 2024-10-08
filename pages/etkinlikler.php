@@ -1,3 +1,19 @@
+<link rel="stylesheet" href="../loading/loading.css">
+
+<title> Etkinlikler </title>
+
+<link rel="shortcut icon" href="../assets/icos/favicon.ico" type="image/x-icon">
+<!-- Spinner -->
+<div id="loading"  class="loader loader-index"></div>
+<script>
+    window.addEventListener("load", () => {
+        const loader = document.querySelector(".loader");
+        loader.classList.add("loader--hidden");
+        loader.addEventListener("transitionend", () => {
+            document.body.removeChild(loader);
+        });
+    });
+</script>
 <?php
 include('/Applications/XAMPP/xamppfiles/htdocs/first-fullstack-project/db/db.php');
 
@@ -17,6 +33,8 @@ if ($data->num_rows > 0) {
         <a href = '../crud/deletee.php?id=" . $row['id'] . "' style='color: red;'>Sil</a>
                 <a href ='./updatee-from.php?id=" . $row ['id'] . "'>Güncelle</a>
       </div>";
+        echo "<div style='align-items: center; font-size: large; justify-content: center; color: #003cff; '><a href='./etkinlik-ekleme.php'>EKLEMEK İÇİN TIKLAYIN.</a>";
+
 
     }
 } else {

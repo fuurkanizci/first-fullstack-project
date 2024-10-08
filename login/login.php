@@ -1,59 +1,67 @@
+<?php
+include('../db/db.php');
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $name=$_POST["name"];
+    $email=$_POST["email"];
+    $password=$_POST["password"];
+    $user_type="user";
+
+    $sql="SELECT * FROM `users` WHERE email='".$email."' AND password='".$password."'";
+    $result=mysqli_query($sql,$deneme);
+    $row=mysqli_fetch_assoc($result);
+    if($row["user_type"]=="user"){
+        echo "user";
+    }
+    elseif($row["user_type"]=="admin"){
+        echo "admin";
+    }
+    else{
+        echo "username or password is wrong";
+    }
+}
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
+    <link rel="shortcut icon" href="../assets/icos/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giriş Yap Kaydol</title>
+    <title>Kullanıcı Giriş Kayıt</title>
     <link rel="stylesheet" href="login.css">
+
+
+    <link rel="stylesheet" href="../loading/loading.css">
 </head>
-<body>
+<body >
 
-    <!-- İlk Form - Admin Formu -->
-    <div class="denemeler pt"> <h2>Admin Giriş</h2> <h2>Admin Kayıt</h2> </div>
+<!-- Spinner -->
+<div id="loading"  class="loader loader-index"></div>
+<script>
+    window.addEventListener("load", () => {
+        const loader = document.querySelector(".loader");
+        loader.classList.add("loader--hidden");
+        loader.addEventListener("transitionend", () => {
+            document.body.removeChild(loader);
+        });
+    });
+</script>
 
-    <div class="container admin-container" id="container">
-        <div class="form-container sign-up-container">
-            <form action="#">
-                <h1 class="yazi-siyah">Hesap Oluştur</h1>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Kayıt Ol</button>
-            </form>
-        </div>
-        <div class="form-container sign-in-container">
-            <form action="#">
-                <h1 class="yazi-siyah">Giriş Yap</h1>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Giriş Yap</button>
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Tekrar Hoşgeldin</h1>
-                    <p>Hesap bilgilerini girdikten sonra, kaldığımız yerden devam edebiliriz</p>
-                    <button class="ghost" id="signIn">Giriş Yap</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Selamlar Hoşgeldin</h1>
-                    <p>Kişisel bilgilerini doldur ve bize katıl</p>
-                    <button class="ghost" id="signUp">Kayıt Ol</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<button type="button" class="mrgn-bttm" onClick="parent.location='./login-admin.php'">Admin Giriş Kayıt</button>
+
 
     <!-- İkinci Form - Kullanıcı Formu -->
-    <div class="denemeler pt">
-        <div><h2 class="pr ">Kullanıcı Giriş</h2></div>
-        <div><h2>Kullanıcı Kayıt</h2></div>
-    </div>
 
-    <div class="container user-container" id="container2">
+    <div class="container user-container " id="container2">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form action="#" method="post">
                 <h1 class="yazi-siyah">Hesap Oluştur</h1>
                 <input type="text" placeholder="Name">
                 <input type="email" placeholder="Email">
@@ -66,7 +74,7 @@
                 <h1 class="yazi-siyah">Giriş Yap</h1>
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
-                <button>Giriş Yap</button>
+                <button type="submit" >Giriş Yap</button>
             </form>
         </div>
         <div class="overlay-container">
@@ -74,7 +82,7 @@
                 <div class="overlay-panel overlay-left">
                     <h1>Tekrar Hoşgeldin</h1>
                     <p>Hesap bilgilerini girdikten sonra, kaldığımız yerden devam edebiliriz</p>
-                    <button class="ghost" id="signIn2">Giriş Yap</button>
+                    <button type="submit"  class="ghost" id="signIn2">Giriş Yap</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Selamlar Hoşgeldin</h1>
@@ -88,19 +96,6 @@
 
 <script>
     // İlk formun animasyonu
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
-
-    signUpButton.addEventListener('click', () => {
-        container.classList.add("right-panel-active");
-    });
-
-    signInButton.addEventListener('click', () => {
-        container.classList.remove("right-panel-active");
-    });
-
-    // İkinci formun animasyonu
     const signUpButton2 = document.getElementById('signUp2');
     const signInButton2 = document.getElementById('signIn2');
     const container2 = document.getElementById('container2');
@@ -112,6 +107,11 @@
     signInButton2.addEventListener('click', () => {
         container2.classList.remove("right-panel-active");
     });
+
+
+
+    // İkinci formun animasyonu
+
 </script>
 </body>
 </html>

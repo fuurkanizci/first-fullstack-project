@@ -1,3 +1,17 @@
+<link rel="stylesheet" href="../loading/loading.css">
+<title>Haberler</title>
+<link rel="shortcut icon" href="../assets/icos/favicon.ico" type="image/x-icon">
+<!-- Spinner -->
+<div id="loading"  class="loader loader-index"></div>
+<script>
+    window.addEventListener("load", () => {
+        const loader = document.querySelector(".loader");
+        loader.classList.add("loader--hidden");
+        loader.addEventListener("transitionend", () => {
+            document.body.removeChild(loader);
+        });
+    });
+</script>
 <?php
 // Veritabanı bağlantısını dahil et
 include('/Applications/XAMPP/xamppfiles/htdocs/first-fullstack-project/db/db.php');

@@ -1,9 +1,12 @@
 <?php
 include '../db/db.php';
-echo "<link rel='stylesheet' href='./node_modules/tailwindcss/tailwind.css'>
-    <link rel='stylesheet' href='./login.css'>";
+echo "<link rel='stylesheet' href='./node_modules/tailwindcss/tailwind.css'>";
 
-parse_str(file_get_contents("php://input"), $_PUT);
+// Ham veriyi al
+$input = file_get_contents("php://input");
+
+// Verinin JSON olduğunu varsayarak diziye dönüştür
+$_PUT = json_decode($input, true);
 
 // Bağlantıyı kontrol et
 try {
@@ -18,28 +21,34 @@ try {
     echo "Bağlantı hatası: " . $e->getMessage() . "<br>";
 }
 
+// PUT isteği ile gelen verileri kontrol et
 if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
-    $code = $_PUT['id'];
-    $name = $_PUT['baslik'];
-    $description = $_PUT['haber'];
-    $duration = $_PUT['kategori'];
+    if (isset($_PUT['id'], $_PUT['baslik'], $_PUT['icerik'], $_PUT['kategori'])) {
+        $code = $_PUT['id'];
+        $name = $_PUT['baslik'];
+        $description = $_PUT['icerik'];
+        $duration = $_PUT['kategori'];
 
-    // Güncelleme sorgusu
-    $sql = "UPDATE news SET baslik = :baslik, haber = :haber, kategori = :kategori WHERE id = :id";
-    $stmt = $deneme->prepare($sql);
+        // Güncelleme sorgusu
+        $sql = "UPDATE news SET baslik = :baslik, icerik = :icerik, kategori = :kategori WHERE id = :id";
+        $stmt = $deneme->prepare($sql);
 
-    // Parametreleri bağla
-    $stmt->bindParam(':id', $code);
-    $stmt->bindParam(':baslik', $name);
-    $stmt->bindParam(':haber', $description);
-    $stmt->bindParam(':kategori', $duration);
+        // Parametreleri bağla
+        $stmt->bindParam(':id', $code);
+        $stmt->bindParam(':baslik', $name);
+        $stmt->bindParam(':icerik', $description);
+        $stmt->bindParam(':kategori', $duration);
 
-    // Sorguyu çalıştır ve güncelleme sonucunu kontrol et
-    if ($stmt->execute()) {
-        echo "Program güncellendi.";
-        echo "<a href='../pages/haberler.php'>Geri Dönünüz</a>";
+        // Sorguyu çalıştır ve güncelleme sonucunu kontrol et
+        if ($stmt->execute()) {
+            echo "Etkinlik başarıyla güncellendi.";
+            header("Refresh:2; ../pages/etkinlikler.php");
+            exit();
+        } else {
+            echo "Güncelleme işlemi başarısız: " . $deneme->error;
+        }
     } else {
-        echo "Güncelleme işlemi başarısız.";
+        echo "PUT isteğinde eksik veri.";
     }
 }
 ?>

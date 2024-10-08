@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+    <link rel="shortcut icon" href="../assets/icos/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -9,10 +11,24 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./node_modules/tailwindcss/tailwind.css">
+    <link rel="stylesheet" href="../loading/loading.css">
 </head>
+
+
+<!-- Spinner -->
+<div id="loading"  class="loader loader-index"></div>
+<script>
+    window.addEventListener("load", () => {
+        const loader = document.querySelector(".loader");
+        loader.classList.add("loader--hidden");
+        loader.addEventListener("transitionend", () => {
+            document.body.removeChild(loader);
+        });
+    });
+</script>
 <body class="bg-gray-800">
 <?php
-include('/Applications/XAMPP/xamppfiles/htdocs/first-fullstack-project/db/db.php');
+include('../db/db.php');
 $id = $_GET['id'];
 
 // Hazırlıklı ifade kullanarak sorguyu oluştur
