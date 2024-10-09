@@ -1,13 +1,13 @@
+
 <?php
-// MySQL'e bağlanma
-$deneme = mysqli_connect("127.0.0.1", "root", "", "proje-1-haberler");
-
-// Bağlantı hatası varsa hata mesajını ekrana yazdır
-if (!$deneme) {
-    die("Veritabanına bağlanılamadı: " . mysqli_connect_error());
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db_name = "proje-1-haberler";
+$deneme = new mysqli($servername, $username, "", $db_name, 3307);
+if($deneme->connect_error){
+    die("Connection failed".$deneme->connect_error);
 }
-
-// UTF-8 karakter setini ayarla
-mysqli_set_charset($deneme, "utf8");
+echo "";
 
 ?>

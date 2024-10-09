@@ -44,7 +44,7 @@ if ($row) {
     ?>
 
     <p class="text-3xl justify-center flex dark:text-gray-400">Etkinlik Güncelleme <br> Formuna Hoşgeldiniz</p>
-    <form action="../db/update-news.php" method="post" class="mt-4 max-w-md mx-auto ">
+    <form action="../db/update-events.php" method="post" class="mt-4 max-w-md mx-auto ">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>"> <!-- ID'yi gizli bir input olarak ekliyoruz -->
 
         <div class="relative z-0 w-full mb-5 group">

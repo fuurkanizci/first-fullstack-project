@@ -1,31 +1,11 @@
+
+
+
 <?php
-include('../db/db.php');
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $name=$_POST["name"];
-    $email=$_POST["email"];
-    $password=$_POST["password"];
-    $user_type="user";
-
-    $sql="SELECT * FROM `users` WHERE email='".$email."' AND password='".$password."'";
-    $result=mysqli_query($sql,$deneme);
-    $row=mysqli_fetch_assoc($result);
-    if($row["user_type"]=="user"){
-        echo "user";
-    }
-    elseif($row["user_type"]=="admin"){
-        echo "admin";
-    }
-    else{
-        echo "username or password is wrong";
-    }
-}
-
-
+include "../db/db.php";
+include "../db/sign-in.php";
+include "../db/sign-up.php";
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,20 +41,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <div class="container user-container " id="container2">
         <div class="form-container sign-up-container">
-            <form action="#" method="post">
-                <h1 class="yazi-siyah">Hesap Oluştur</h1>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Kayıt Ol</button>
+            <form action="../db/sign-up.php" method="POST">
+                <h1 class="syh">Hesap Oluştur</h1>
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" id="cpass" name="cpass" placeholder="Retype Password" required>
+                <button type="submit" name="submit">Kayıt Ol</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
-                <h1 class="yazi-siyah">Giriş Yap</h1>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button type="submit" >Giriş Yap</button>
+            <form action="../db/sign-in.php" method="POST">
+                <h1 class="syh">Giriş Yap</h1>
+                <input type="email" name="email"placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit" name="giris">Giriş Yap</button>
             </form>
         </div>
         <div class="overlay-container">
