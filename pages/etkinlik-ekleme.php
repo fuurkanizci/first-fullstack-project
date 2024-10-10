@@ -15,7 +15,6 @@
 </head>
 
 
-<!-- Spinner -->
 <div id="loading"  class="loader loader-index"></div>
 <script>
     window.addEventListener("load", () => {

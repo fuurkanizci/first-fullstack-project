@@ -18,7 +18,7 @@ include('../db/data.php');
 </head>
 
 <body class="h-full w-full font-serif overflow-hidden">
-<!-- Spinner -->
+
 <div id="loading" class="loader loader-index"></div>
 <script>
     window.addEventListener("load", () => {

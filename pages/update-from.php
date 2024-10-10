@@ -31,15 +31,15 @@
 include('../db/db.php');
 $id = $_GET['id'];
 
-// Hazırlıklı ifade kullanarak sorguyu oluştur
+
 $sorgu = "SELECT id, baslik, haber, kategori FROM news WHERE id = ?";
 $stmt = $deneme->prepare($sorgu);
-$stmt->bind_param('i', $id); // ID değerini bağla
+$stmt->bind_param('i', $id);
 $stmt->execute();
 $result = $stmt->get_result();
-$row = $result->fetch_assoc(); // Sonucu al
+$row = $result->fetch_assoc();
 
-// Eğer veri varsa formu doldur
+
 if ($row) {
     ?>
 

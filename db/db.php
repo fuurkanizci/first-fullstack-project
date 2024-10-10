@@ -1,5 +1,6 @@
 
 <?php
+echo "<link rel='shortcut icon' href='../assets/icos/favicon.ico' type='image/x-icon'>";
 $servername = "localhost";
 $username = "root";
 $password = "";

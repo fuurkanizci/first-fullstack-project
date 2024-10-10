@@ -1,20 +1,31 @@
 <?php
+echo "<link rel='shortcut icon' href='../assets/icos/favicon.ico' type='image/x-icon'>";
 session_start();
 error_reporting(0);
 include('db.php');
+
 if (isset($_POST['giris'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
-    $query = mysqli_query($deneme, "SELECT * FROM users WHERE email='$email' AND password='$password' ");
-    $row = mysqli_fetch_array($query);
-    if($query) {
-        echo "Yeni Etkinlik Eklendi";
-        header("Refresh:2; ../pages/haberler.php");
-    }
-    else {
-        echo "gata";
+    $stmt = $deneme->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
+    $stmt->bind_param("ss", $email, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
 
+        $user = $result->fetch_assoc();
+        header("Refresh:1; ../pages/index.php");
+        echo "<script>alert('Giriş Başarılı!');</script>";
+        $_SESSION['user'] = $user;
+    } else {
+        header("Refresh:1; ../login/login.php");
+        echo "<script>alert('Geçersiz Email veya Şifre!');</script>";
     }
 
+
+    $stmt->close();
+    $deneme->close();
 }
-  ?>
+
+
+?>

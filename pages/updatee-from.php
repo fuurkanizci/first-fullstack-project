@@ -15,7 +15,7 @@
 </head>
 
 
-<!-- Spinner -->
+
 <div id="loading"  class="loader loader-index"></div>
 <script>
     window.addEventListener("load", () => {
@@ -31,21 +31,21 @@
 include('../db/db.php');
 $id = $_GET['id'];
 
-// Hazırlıklı ifade kullanarak sorguyu oluştur
+
 $sorgu = "SELECT id, baslik, icerik, kategori FROM events WHERE id = ?";
 $stmt = $deneme->prepare($sorgu);
-$stmt->bind_param('i', $id); // ID değerini bağla
+$stmt->bind_param('i', $id); /
 $stmt->execute();
 $result = $stmt->get_result();
-$row = $result->fetch_assoc(); // Sonucu al
+$row = $result->fetch_assoc();
 
-// Eğer veri varsa formu doldur
+
 if ($row) {
     ?>
 
     <p class="text-3xl justify-center flex dark:text-gray-400">Etkinlik Güncelleme <br> Formuna Hoşgeldiniz</p>
     <form action="../db/update-events.php" method="post" class="mt-4 max-w-md mx-auto ">
-        <input type="hidden" name="id" value="<?php echo $row['id']; ?>"> <!-- ID'yi gizli bir input olarak ekliyoruz -->
+        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 
         <div class="relative z-0 w-full mb-5 group">
             <input type="text" name="etkinlik_basligi" id="etkinlik_basligi"

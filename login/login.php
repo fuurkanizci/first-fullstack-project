@@ -22,7 +22,6 @@ include "../db/sign-up.php";
 </head>
 <body >
 
-<!-- Spinner -->
 <div id="loading"  class="loader loader-index"></div>
 <script>
     window.addEventListener("load", () => {
@@ -37,7 +36,6 @@ include "../db/sign-up.php";
 <button type="button" class="mrgn-bttm" onClick="parent.location='./login-admin.php'">Admin Giriş Kayıt</button>
 
 
-    <!-- İkinci Form - Kullanıcı Formu -->
 
     <div class="container user-container " id="container2">
         <div class="form-container sign-up-container">
@@ -76,7 +74,6 @@ include "../db/sign-up.php";
 
 
 <script>
-    // İlk formun animasyonu
     const signUpButton2 = document.getElementById('signUp2');
     const signInButton2 = document.getElementById('signIn2');
     const container2 = document.getElementById('container2');
@@ -90,8 +87,6 @@ include "../db/sign-up.php";
     });
 
 
-
-    // İkinci formun animasyonu
 
 </script>
 </body>
