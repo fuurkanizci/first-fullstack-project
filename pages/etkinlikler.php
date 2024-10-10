@@ -43,5 +43,5 @@ if ($data->num_rows > 0) {
 ?>
 <div style='align-items: center; font-size: large; justify-content: center; color: red; '><a href="./haberler.php">Haberler</a>
 </div>,
-<div style='align-items: center; font-size: large; justify-content: center; '><a href="./index.php">Anasayfa</a>
+<div style='align-items: center; font-size: large; justify-content: center; '><a href="./home.php">Anasayfa</a>
 </div>

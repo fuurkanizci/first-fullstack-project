@@ -36,7 +36,7 @@
 <div class="container admin-container" id="container">
     <div class="form-container sign-up-container">
         <form action="../db/sign-up.php" method="post">
-            <h1 class="yazi-siyah">Hesap Oluştur</h1>
+            <h1 class="syh">Hesap Oluştur</h1>
             <input type="text" name="name" placeholder="Name">
             <input type="email" name="email" placeholder="Email">
             <input type="password" name="password" placeholder="Password">
@@ -46,7 +46,7 @@
     </div>
     <div class="form-container sign-in-container">
         <form action="../db/sign-in.php" method="POST">
-            <h1 class="yazi-siyah">Giriş Yap</h1>
+            <h1 class="syh">Giriş Yap</h1>
             <input type="email" name="email" placeholder="Email">
             <input type="password" name="password" placeholder="Password">
             <button type="submit" name="giris">Giriş Yap</button>

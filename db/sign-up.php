@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
                         mysqli_stmt_bind_param($stmtInsert, "sss", $name, $email, $password);
                         if (mysqli_stmt_execute($stmtInsert)) {
                             echo mail_sign( $name, $email,  "furkanizci_10@icloud.com");
-                            header("Refresh:2; ../pages/index.php");
+                            header("Refresh:2; ../pages/home.php");
                             echo "<script>alert('Kayıt başarılı!');</script>";
                         } else {
                             echo "Kayıt eklenemedi: " . mysqli_error($deneme);

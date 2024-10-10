@@ -14,11 +14,11 @@ if (isset($_POST['giris'])) {
     if ($result->num_rows > 0) {
 
         $user = $result->fetch_assoc();
-        header("Refresh:1; ../pages/index.php");
+        header("Refresh:1; ../pages/home.php");
         echo "<script>alert('Giriş Başarılı!');</script>";
         $_SESSION['user'] = $user;
     } else {
-        header("Refresh:1; ../login/login.php");
+        header("Refresh:1; ../pages/indexa.php");
         echo "<script>alert('Geçersiz Email veya Şifre!');</script>";
     }
 

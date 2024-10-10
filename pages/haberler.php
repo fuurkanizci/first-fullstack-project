@@ -53,5 +53,5 @@ $deneme->close();
     <a href="./etkinlikler.php">Etkinlikler</a>
 </div>
 <div style='align-items: center; font-size: large; justify-content: center; '>
-    <a href="./index.php">Anasayfa</a>
+    <a href="./home.php">Anasayfa</a>
 </div>
