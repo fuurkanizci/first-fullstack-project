@@ -1,4 +1,5 @@
 <?php
+
 echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
 session_start();
 error_reporting(0);
@@ -18,7 +19,7 @@ if (isset($_POST['giris'])) {
         echo "<script>alert('Giriş Başarılı!');</script>";
         $_SESSION['user'] = $user;
     } else {
-        header("Refresh:1; ../pages/indexa.php");
+        header("Refresh:1; ../pages/login.php");
         echo "<script>alert('Geçersiz Email veya Şifre!');</script>";
     }
 

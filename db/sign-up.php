@@ -46,17 +46,20 @@ if (isset($_POST['submit'])) {
                             header("Refresh:2; ../pages/index.php");
                             echo "<script>alert('Kayıt başarılı!');</script>";
                         } else {
-                            echo "Kayıt eklenemedi: " . mysqli_error($deneme);
+                            echo "Kayıt eklenemedi: " . mysqli_error($deneme);  header("Refresh:2; ../pages/login.php");
                         }
                     } else {
                         echo "Hazırlanan ifade oluşturulamadı: " . mysqli_error($deneme);
+                        header("Refresh:2; ../pages/login.php");
                     }
                 }
             } else {
                 echo "Sorgu çalıştırılamadı: " . mysqli_error($deneme);
+                header("Refresh:2; ../pages/login.php");
             }
         } else {
             echo "Hazırlanan ifade oluşturulamadı: " . mysqli_error($deneme);
+            header("Refresh:2; ../pages/login.php");
         }
     }
 }

@@ -33,7 +33,6 @@ include "../db/sign-up.php";
     });
 </script>
 
-<button type="button" class="mrgn-bttm" onClick="parent.location='./login-admin.php'">Admin Giriş Kayıt</button>
 
 
 

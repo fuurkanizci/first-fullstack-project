@@ -16,4 +16,6 @@ $quicqMenu="Hızlı Ulaş";
 $designed="designed by Furkanİzci";
 $eventsAdd="Yeni Etkinlik Ekle";
 $newsAdd="Yeni Haber Ekle";
+$myActivities ="Hareketlerim";
+$logOut="Çıkış";
 ?>

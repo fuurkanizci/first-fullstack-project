@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: ./login.php");
+    exit;
+}
+?>
+
 <!doctype html>
 <?php
 include('../db/db.php');
@@ -47,7 +55,9 @@ include('../db/data.php');
 
             <div class="flex flex-row absolute right-6">
                 <button id="newsButton" class="p-2 border rounded-2xl bg-[#f0a500] mr-5 hover:bg-[#F2B631]"><?= $newsAdd ?></button>
-                <button id="eventsButton" class="p-2 border rounded-2xl bg-[#f0a500] hover:bg-[#F2B631]"><?= $eventsAdd ?></button>
+                <button id="eventsButton" class="p-2 border rounded-2xl bg-[#f0a500] mr-5 hover:bg-[#F2B631]"><?= $eventsAdd ?></button>
+                <button id="activitiesButton" class="p-2 border rounded-2xl bg-[#f0a500] mr-5 hover:bg-[#F2B631]"><?= $myActivities?></button>
+                <button id="logOutButton" class="p-2 border rounded-2xl bg-[#f0a500] hover:bg-[red]"><?= $logOut?></button>
             </div>
         </nav>
     </div>
@@ -94,6 +104,11 @@ include('../db/data.php');
     });
     document.getElementById("eventsButton").addEventListener("click", function () {
         window.location.href = "etkinlik-ekleme.php";
+    });
+    document.getElementById("activitiesButton").addEventListener("click", function () {
+        window.location.href = "hareketlerim.php";
+    }); document.getElementById("logOutButton").addEventListener("click", function () {
+        window.location.href = "../db/logout.php";
     });
 </script>
 </body>
