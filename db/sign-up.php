@@ -1,5 +1,5 @@
 <?php
-echo "<link rel='shortcut icon' href='../assets/icos/favicon.ico' type='image/x-icon'>";
+echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
 include "mail-sign.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -35,6 +35,7 @@ if (isset($_POST['submit'])) {
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     echo "<script>alert('Bu email zaten kullanılıyor.');</script>";
+                    header("Refresh:2; ../pages/login.php");
                 } else {
                     $sqlInsert = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
                     $stmtInsert = mysqli_prepare($deneme, $sqlInsert);
@@ -42,7 +43,7 @@ if (isset($_POST['submit'])) {
                         mysqli_stmt_bind_param($stmtInsert, "sss", $name, $email, $password);
                         if (mysqli_stmt_execute($stmtInsert)) {
                             echo mail_sign( $name, $email,  "furkanizci_10@icloud.com");
-                            header("Refresh:2; ../pages/home.php");
+                            header("Refresh:2; ../pages/index.php");
                             echo "<script>alert('Kayıt başarılı!');</script>";
                         } else {
                             echo "Kayıt eklenemedi: " . mysqli_error($deneme);

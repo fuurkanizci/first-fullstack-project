@@ -14,7 +14,7 @@
     <!-- Sayfa CSS -->
     <link rel="stylesheet" href="login.css">
 
-    <link rel="stylesheet" href="../loading/loading.css">
+    <link rel="stylesheet" href="../src/components/loading/loading.css">
 </head>
 <body>
 

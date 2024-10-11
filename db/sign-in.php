@@ -1,5 +1,5 @@
 <?php
-echo "<link rel='shortcut icon' href='../assets/icos/favicon.ico' type='image/x-icon'>";
+echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
 session_start();
 error_reporting(0);
 include('db.php');
@@ -14,7 +14,7 @@ if (isset($_POST['giris'])) {
     if ($result->num_rows > 0) {
 
         $user = $result->fetch_assoc();
-        header("Refresh:1; ../pages/home.php");
+        header("Refresh:1; ../pages/index.php");
         echo "<script>alert('Giriş Başarılı!');</script>";
         $_SESSION['user'] = $user;
     } else {

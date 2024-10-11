@@ -2,8 +2,8 @@
 // PHPMailer dosyalarını dahil et
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-echo "<link rel='shortcut icon' href='../assets/icos/favicon.ico' type='image/x-icon'>";
-require '../vendor/autoload.php';
+echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
+require '../plugins/vendor/autoload.php';
 //require 'libs/PHPMailer/src/PHPMailer.php';
 //require 'libs/PHPMailer/src/Exception.php';
 function mail_sign($name, $email)

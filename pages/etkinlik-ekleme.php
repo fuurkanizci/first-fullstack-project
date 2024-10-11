@@ -8,10 +8,10 @@
     <title>Etkinlik Ekleme Formuna Hoşgeldiniz</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../node_modules/tailwindcss/tailwind.css">
-    <link rel="stylesheet" href="../loading/loading.css">
+    <link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css">
+    <link rel="stylesheet" href="../src/components/loading/loading.css">
 
-    <link rel="shortcut icon" href="../assets/icos/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
 </head>
 
 

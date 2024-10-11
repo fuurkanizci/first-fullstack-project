@@ -1,5 +1,5 @@
 <?php
-echo "<link rel='shortcut icon' href='../assets/icos/favicon.ico' type='image/x-icon'>";
+echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 

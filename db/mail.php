@@ -1,9 +1,9 @@
 <?php
-echo "<link rel='shortcut icon' href='../assets/icos/favicon.ico' type='image/x-icon'>";
+echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php';
+require '../plugins/vendor/autoload.php';
 //require 'libs/PHPMailer/src/PHPMailer.php';
 //require 'libs/PHPMailer/src/Exception.php';
 function mail_gonder($konu, $baslik, $haberKonu, $icerik, $alici)

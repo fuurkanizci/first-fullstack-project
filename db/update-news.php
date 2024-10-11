@@ -1,5 +1,5 @@
 <?php
-echo "<link rel='shortcut icon' href='../assets/icos/favicon.ico' type='image/x-icon'>";
+echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
 include 'db.php';
 include "mail.php";
 $newsTitle=$_POST["haber_basligi"];

@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="../loading/loading.css">
+<link rel="stylesheet" href="../src/components/loading/loading.css">
 <title>Haberler</title>
-<link rel="shortcut icon" href="../assets/icos/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
 
 <div id="loading"  class="loader loader-index"></div>
 <script>
@@ -53,5 +53,5 @@ $deneme->close();
     <a href="./etkinlikler.php">Etkinlikler</a>
 </div>
 <div style='align-items: center; font-size: large; justify-content: center; '>
-    <a href="./home.php">Anasayfa</a>
+    <a href="./index.php">Anasayfa</a>
 </div>

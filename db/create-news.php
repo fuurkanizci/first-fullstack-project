@@ -1,7 +1,7 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="../node_modules/tailwindcss/tailwind.css"><?php
-echo "<link rel='shortcut icon' href='../assets/icos/favicon.ico' type='image/x-icon'>";
+<link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css"><?php
+echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
 include 'db.php';
 include "mail.php";
 $newsTitle=$_POST["haber_basligi"];

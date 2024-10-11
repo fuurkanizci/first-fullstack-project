@@ -1,8 +1,8 @@
-<link rel="stylesheet" href="../loading/loading.css">
+<link rel="stylesheet" href="../src/components/loading/loading.css">
 
 <title> Etkinlikler </title>
 
-<link rel="shortcut icon" href="../assets/icos/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
 
 <div id="loading"  class="loader loader-index"></div>
 <script>
@@ -15,7 +15,7 @@
     });
 </script>
 <?php
-include('/Applications/XAMPP/xamppfiles/htdocs/first-fullstack-project/db/db.php');
+include('../db/db.php');
 
 $sorgu = "SELECT id, baslik, icerik, kategori FROM events";
 $data = $deneme->query($sorgu);
@@ -43,5 +43,5 @@ if ($data->num_rows > 0) {
 ?>
 <div style='align-items: center; font-size: large; justify-content: center; color: red; '><a href="./haberler.php">Haberler</a>
 </div>,
-<div style='align-items: center; font-size: large; justify-content: center; '><a href="./home.php">Anasayfa</a>
+<div style='align-items: center; font-size: large; justify-content: center; '><a href="./index.php">Anasayfa</a>
 </div>
