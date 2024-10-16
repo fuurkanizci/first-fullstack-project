@@ -5,6 +5,7 @@
 include "../db/db.php";
 include "../db/sign-in.php";
 include "../db/sign-up.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,24 +35,24 @@ include "../db/sign-up.php";
 </script>
 
 
-
-
     <div class="container user-container " id="container2">
-        <div class="form-container sign-up-container">
+        <div class="form-container sign-up-container ">
             <form action="../db/sign-up.php" method="POST">
-                <h1 class="syh">Hesap Oluştur</h1>
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <input type="password" id="cpass" name="cpass" placeholder="Retype Password" required>
+                <h1 class="syh ">Hesap Oluştur</h1>
+                <input type="text" class="color-text" name="name" placeholder="İsim" required>
+                <input type="email" class="color-text" name="email" placeholder="Email" required>
+                <input type="password" class="color-text" id="passShowUp" name="password" placeholder="Şifre" required>
+                <input type="password" class="color-text" id="passShowUp" name="cpass" placeholder="Şifreyi Doğrula" required>
+                <input type="checkbox"  onclick="showPasswordSignUp() "><p class="color-text relative top-[-19px]">Şifreyi Göster</p>
                 <button type="submit" name="submit">Kayıt Ol</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
             <form action="../db/sign-in.php" method="POST">
                 <h1 class="syh">Giriş Yap</h1>
-                <input type="email" name="email"placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
+                <input type="email" class="color-text" name="email"placeholder="Email">
+                <input type="password" id="passShowIn" class="color-text" name="password" placeholder="Şifre">
+                <input type="checkbox"  onclick="showPasswordSignIn() "><p class="color-text relative top-[-19px]">Şifreyi Göster</p>
                 <button type="submit" name="giris">Giriş Yap</button>
             </form>
         </div>
@@ -84,7 +85,23 @@ include "../db/sign-up.php";
     signInButton2.addEventListener('click', () => {
         container2.classList.remove("right-panel-active");
     });
+    function showPasswordSignUp() {
+        var x = document.getElementById("passShowUp");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
 
+    function showPasswordSignIn() {
+        var x = document.getElementById("passShowIn");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
 
 
 </script>

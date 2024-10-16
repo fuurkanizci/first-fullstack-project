@@ -1,3 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kayıt</title>
+</head>
+<body>
+
 <?php
 echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
 include "mail-sign.php";
@@ -12,19 +26,24 @@ if (!$deneme) {
 mysqli_set_charset($deneme, "utf8");
 
 if (isset($_POST['submit'])) {
-    // Form verilerini alalım
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
-    $password = md5($_POST['password'])  ;
+    $password = md5($_POST['password']);
     $cpass = $_POST['cpass'];
 
     if (empty($name) || empty($email) || empty($password) || empty($cpass)) {
-        echo "<script>alert('Lütfen tüm alanları doldurun.');</script>";
+        echo " <div >
+ <img class='w-full h-screen object-cover ' src='../src/assets/imgs/try-again.jpg' alt='tryAgainPage'>
+</div>";
+        echo "Lütfen Bütün Alanları Doldurun: " . mysqli_error($deneme);
+        header("Refresh:2; ../pages/login.php");
     } elseif ($_POST['password'] !== $cpass) {
-        echo "<script>alert('Şifreler eşleşmiyor.');</script>";
+        echo " <div>
+ <img class='w-full h-screen object-cover ' src='../src/assets/imgs/try-again.jpg' alt='tryAgainPage'>
+</div>";
+        echo "Şifreler Eşleşmedi: " . mysqli_error($deneme);
+        header("Refresh:2; ../pages/login.php");
     } else {
-
-
         $sql = "SELECT * FROM users WHERE email = ?";
         $stmt = mysqli_prepare($deneme, $sql);
         if ($stmt) {
@@ -34,6 +53,9 @@ if (isset($_POST['submit'])) {
 
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
+                    echo " <div>
+ <img class='w-full h-screen object-cover ' src='../src/assets/imgs/try-again.jpg' alt='tryAgainPage'>
+</div>";
                     echo "<script>alert('Bu email zaten kullanılıyor.');</script>";
                     header("Refresh:2; ../pages/login.php");
                 } else {
@@ -42,25 +64,38 @@ if (isset($_POST['submit'])) {
                     if ($stmtInsert) {
                         mysqli_stmt_bind_param($stmtInsert, "sss", $name, $email, $password);
                         if (mysqli_stmt_execute($stmtInsert)) {
-                            echo mail_sign( $name, $email,  "furkanizci_10@icloud.com");
+                            echo mail_sign($name, $email, "furkanizci_10@icloud.com");
                             header("Refresh:2; ../pages/index.php");
+                            echo " <div>
+ <img class='w-full h-screen object-cover ' src='../src/assets/imgs/welcome-up.jpg' alt='welcomeUpPage'>
+</div>";
                             echo "<script>alert('Kayıt başarılı!');</script>";
                         } else {
-                            echo "Kayıt eklenemedi: " . mysqli_error($deneme);  header("Refresh:2; ../pages/login.php");
+                            echo " <div>
+ <img class='w-full h-screen object-cover ' src='../src/assets/imgs/try-again.jpg' alt='tryAgainPage'>
+</div>";
+                            echo "Kayıt eklenemedi: " . mysqli_error($deneme);
+                            header("Refresh:2; ../pages/login.php");
                         }
                     } else {
+                        echo " <div>
+ <img class='w-full h-screen object-cover ' src='../src/assets/imgs/try-again.jpg' alt='tryAgainPage'>
+</div>";
                         echo "Hazırlanan ifade oluşturulamadı: " . mysqli_error($deneme);
                         header("Refresh:2; ../pages/login.php");
                     }
                 }
             } else {
+                echo " <div>
+ <img class='w-full h-screen object-cover ' src='../src/assets/imgs/try-again.jpg' alt='tryAgainPage'>
+</div>";
                 echo "Sorgu çalıştırılamadı: " . mysqli_error($deneme);
                 header("Refresh:2; ../pages/login.php");
             }
-        } else {
-            echo "Hazırlanan ifade oluşturulamadı: " . mysqli_error($deneme);
-            header("Refresh:2; ../pages/login.php");
         }
     }
 }
 ?>
+
+</body>
+</html>

@@ -44,7 +44,7 @@ footer {
     z-index: 10;
 }
 
-a {
+.anim {
     color: white;
     text-decoration: none;
     position: relative;
@@ -53,7 +53,7 @@ a {
     transition: color 0.3s;
 }
 
-a::after {
+.anim::after {
     content: '';
     position: absolute;
     width: 0%;
@@ -64,14 +64,17 @@ a::after {
     transition: width 0.4s ease;
 }
 
-a:hover::after {
+.anim:hover::after {
     width: 100%;
 }
 
-a:hover {
+.anim:hover {
     color: #f0a500;
 }
 
 ul li a {
     transition: color 0.3s ease;
+}
+hr{
+    color: black;
 }

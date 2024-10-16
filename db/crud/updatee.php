@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
         $description = $_PUT['icerik'];
         $duration = $_PUT['kategori'];
 
-        $sql = "UPDATE news SET baslik = :baslik, icerik = :icerik, kategori = :kategori WHERE id = :id";
+        $sql = "UPDATE events SET baslik = :baslik, icerik = :icerik, kategori = :kategori WHERE id = :id";
         $stmt = $deneme->prepare($sql);
 
         $stmt->bindParam(':id', $code);
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
 
         if ($stmt->execute()) {
             echo "Etkinlik başarıyla güncellendi.";
-            header("Refresh:2; ../pages/etkinlikler.php");
+            header("Refresh:2; ../pages/paylasilan-etkinlikler.php");
             exit();
         } else {
             echo "Güncelleme işlemi başarısız: " . implode(", ", $stmt->errorInfo());

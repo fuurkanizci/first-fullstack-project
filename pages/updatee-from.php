@@ -34,7 +34,7 @@ $id = $_GET['id'];
 
 $sorgu = "SELECT id, baslik, icerik, kategori FROM events WHERE id = ?";
 $stmt = $deneme->prepare($sorgu);
-$stmt->bind_param('i', $id); /
+$stmt->bind_param('i', $id);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();

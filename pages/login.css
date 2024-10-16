@@ -194,7 +194,7 @@ input{
     transform: translateX(-100%);
 }
 .overlay{
-    background-image: linear-gradient(56deg, rgba(43, 46, 224, 0.15) 0%,rgba(26, 218, 182, 0.15) 100%),linear-gradient(336deg, rgb(50, 52, 221),rgb(60, 239, 241));
+    background-image: linear-gradient(56deg, rgba(43, 224, 85, 0.15) 0%, rgba(51, 119, 105, 0.15) 100%),linear-gradient(336deg, rgb(24, 25, 218), rgb(109, 211, 214)) !important;
     color: #ffffff;
     position: relative;
     left: -100%;
@@ -248,5 +248,17 @@ input{
 }
 .loader-index{
     z-index: 10000;
+}
+.info-img{
+    width: 100%;
+    height:100vh;
+    object-fit: cover;
+}
+.bgi {
+    position: relative;
+    height: 100vh;
+}
+.color-text{
+    color: #424040;
 }
 

@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
 
         if ($stmt->execute()) {
             echo "Etkinlik başarıyla güncellendi.";
-            header("Refresh:2; ../pages/etkinlikler.php");
+            header("Refresh:2; ../pages/paylasilan-haberler.php");
             exit();
         } else {
             echo "Güncelleme işlemi başarısız: " . $deneme->error;

@@ -8,6 +8,7 @@
   </component>
   <component name="PHPCodeSnifferOptionsConfiguration">
     <option name="highlightLevel" value="WARNING" />
+    <option name="ignoreWarnings" value="true" />
     <option name="transferred" value="true" />
   </component>
   <component name="PhpIncludePathManager">
