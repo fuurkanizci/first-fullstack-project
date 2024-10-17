@@ -4,8 +4,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require '../plugins/vendor/autoload.php';
-//require 'libs/PHPMailer/src/PHPMailer.php';
-//require 'libs/PHPMailer/src/Exception.php';
 function mail_gonder($konu, $baslik, $haberKonu, $icerik, $alici)
 {
 

@@ -37,16 +37,16 @@ $data = $deneme->query($sorgu);
 
 if ($data->num_rows > 0) {
     while ($row = $data->fetch_assoc()) {
-        echo "<div style='padding: 0px 95px;'>
-<div class='flex flex-row justify-between'>    
+        echo "<div style='padding: 0px 95px;'>   
         <div style='font-weight: bold; font-size: 20px;'>"  . $row['baslik'] . "</div>
-        <a href = '../db/likes.php?id=" . $row['id'] . "' class='p-2 border border-0   rounded-2xl text-red-600 mr-5 hover:bg-[#ffff00ab]  hover:text-black' ><img src='../src/assets/icos/favorite.png' alt='like'></a></div>
     <div style='height: 10px;'></div>
         <div>" . $row['icerik'] . "</div>
         <div style='height: 10px;'></div>
-        
-    <a href = '../db/comments.php?id=" . $row['id'] . "' class='p-2 border border-0   rounded-2xl ' ><img src='../src/assets/icos/comment.png' alt='comment'></a>
-                <hr class='mt-4'>
+        <div class='flex flex-row gap-3'>
+    <a href = './comments.php?id=" . $row['id'] . "' class='p-2 border border-0   rounded-2xl ' ><img src='../src/assets/icos/comment.png' alt='comment'></a>
+     
+        <a href = '../db/likes.php?id=" . $row['id'] . "' class='p-2 border border-0   rounded-2xl text-red-600 mr-5 hover:bg-[#ffff00ab]  hover:text-black' ><img src='../src/assets/icos/favorite.png' alt='like'></a>           <hr class='mt-4'>
+      </div>
       </div>";
 
 
