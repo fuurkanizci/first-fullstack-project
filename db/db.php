@@ -1,5 +1,7 @@
 
 <?php
+session_start();
+
 echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
 $servername = "127.0.0.1";
 $username = "root";

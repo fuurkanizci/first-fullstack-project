@@ -33,6 +33,7 @@ if (isset($_POST['giris'])) {
         echo " <div><img
 class='w-full h-screen object-cover  ' src='../src/assets/imgs/welcome.jpg' alt='welcomePage'></div>";
         $_SESSION['user'] = $user;
+
     } else {
       header("Refresh:2 ../pages/login.php");
       echo " <div>

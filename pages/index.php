@@ -33,6 +33,9 @@ $footer='../src/components/footer.php';
 <?php
 include $header;
 
+
+
+
 ?>
 <div id="loading" class="loader loader-index"></div>
 <script>

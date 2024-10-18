@@ -40,6 +40,13 @@
 <?php
 include('../db/db.php');
 
+session_start();
+
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit;
+}
+
 $sorgu = "SELECT id, baslik, haber FROM news";
 $data = $deneme->query($sorgu);
 
