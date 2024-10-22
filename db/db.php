@@ -1,17 +1,14 @@
 <?php
-// Oturum kontrolü ve başlatma
 if (session_status() === PHP_SESSION_NONE) {
-    session_start(); // Sadece oturum yoksa başlat
+    session_start();
 }
 
-// Veritabanı bağlantısı
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
 $db_name = "proje-1-haberler";
 $deneme = new mysqli($servername, $username, $password, $db_name, 3306);
 
-// Bağlantı hatası kontrolü
 if ($deneme->connect_error) {
     die("Connection failed: " . $deneme->connect_error);
 }

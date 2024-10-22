@@ -3,6 +3,8 @@
 <head>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
+    
     <link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css">
     <meta charset="UTF-8">
     <meta name="viewport"

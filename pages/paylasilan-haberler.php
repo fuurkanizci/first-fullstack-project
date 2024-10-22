@@ -11,7 +11,6 @@
     <title>Haberlerim</title>
     <link rel="shortcut icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
     <link rel="icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="../src/components/loading/loading.css">
 </head>

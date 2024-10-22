@@ -1,32 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>
+    <title>Yorum Düzenleme</title>
+</head>
+<body class="text-gray">
+
 <?php
 
 
-include "./db.php";
+include './db.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
-// Formdan gelen verilerin kontrolü
-if (!isset($_POST['submit']) && !empty(trim($_POST['comment'])) && !isset($_SESSION['user'])) {
-    $comment = trim($_POST['comment']);
+    $id = $deneme->real_escape_string($_POST['id']);
+    $comment = $deneme->real_escape_string($_POST['yorum']);
 
-    $user_id = $_SESSION['user']['id'];
-    $comment_id = $_POST['id'];
+    $sql = "UPDATE comments SET comment='$comment' WHERE id='$id'";
 
-    // Hazırlanmış sorgu ile güvenli veri güncelleme
-    $stmt = $deneme->prepare("UPDATE comments SET comment = ?, user_id = ? WHERE id = ?");
-    var_dump($stmt);
-    return false;
-    // Parametreleri bağla ve sorguyu çalıştır
-    $stmt->bind_param("sii", $comment, $user_id, $comment_id); // 's' string (yorum), 'i' integer (user_id ve comment_id)
-
-    if ($stmt->execute()) {
-        // Başarı mesajı göster ve yönlendir
-        echo "Yorum başarıyla güncellendi. Yönlendiriliyorsunuz.";
-        header("Refresh:2; url=../pages/yorumlar.php");
-        exit();
+    if ($deneme->query($sql) === TRUE) {
+        header("Location: ../pages/yorumlar.php");
+        echo "Yorum başarıyla güncellendi.";
     } else {
-        echo "Yorum güncellenirken bir hata oluştu: " . htmlspecialchars($stmt->error);
+        echo "Hata: " . $sql . "<br>" . $deneme->error;
     }
-       $stmt->close();
 }
-// Veritabanı bağlantısını kapat
+
 $deneme->close();
 ?>
+
+
+</body>
+</html>
+

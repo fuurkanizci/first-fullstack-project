@@ -7,7 +7,7 @@ require '../plugins/vendor/autoload.php';
 function mail_gonder($konu, $baslik, $haberKonu, $icerik, $alici)
 {
 
-$mail = new PHPMailer(true);  // PHPMailer objesini oluştur
+$mail = new PHPMailer(true);
 
     try {
         $mail->isSMTP();

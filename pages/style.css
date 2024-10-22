@@ -76,5 +76,29 @@ ul li a {
     transition: color 0.3s ease;
 }
 hr{
-    color: black;
+    color: black !important;
+}
+.anim-comment {
+
+     text-decoration: none;
+     position: relative;
+     display: inline-block;
+     padding: 5px 0;
+     transition: color 0.3s;
+ }
+.anim-comment:hover {
+    color: #636363;
+}
+
+
+.anim-like {
+
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+.anim-like:hover {
+    color: #1f73ea;
 }

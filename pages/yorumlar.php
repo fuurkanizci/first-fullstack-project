@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,23 +6,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Yorumlarım</title>
-</head>
-<body>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="shortcut icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css">
     <link rel="stylesheet" href="style.css">
-    <title> Yorumlar </title>
-    <link rel="shortcut icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
+    <title> Yorumlarım </title>
 
     <link rel="stylesheet" href="../src/components/loading/loading.css">
 </head>
