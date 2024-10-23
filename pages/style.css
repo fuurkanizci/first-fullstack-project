@@ -87,12 +87,13 @@ hr{
      transition: color 0.3s;
  }
 .anim-comment:hover {
-    color: #636363;
+    color: #1f871f !important;
+    transform: scale(1.1) !important;
+    transition: all 0.3s ease !important;
 }
 
 
 .anim-like {
-
     text-decoration: none;
     position: relative;
     display: inline-block;
@@ -100,5 +101,11 @@ hr{
     transition: color 0.3s;
 }
 .anim-like:hover {
-    color: #1f73ea;
+    color: dodgerblue !important;
+    transform: scale(1.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+.selected {
+    color: dodgerblue;
 }

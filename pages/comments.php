@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Yorumlar Yapma Formu</title>
+    <title>Yorum Yapma Formu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css">
     <link rel="stylesheet" href="../pages/style.css">
@@ -52,7 +52,7 @@ if (isset($_POST['addNewsComment'])) {
 }*/
 
 
-// Yorum formu
+
 if ($kategori === 'haber') {
     echo '<p class="text-3xl justify-center flex dark:text-gray-400">Haber ile ilgili <br>Yorumunuzu aşağıya yazabilirsiniz.</p>
         <form action="../db/create-comments.php" method="post" class="mt-4 max-w-md mx-auto justify-center items-center w-full">
