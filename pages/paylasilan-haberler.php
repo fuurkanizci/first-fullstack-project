@@ -39,7 +39,7 @@ if ($data->num_rows > 0) {
         echo "<div style='padding: 0px 95px;'>
         <div style='font-weight: bold; font-size: 20px;'>"  . $row['baslik'] . "</div>
         <div style='height: 10px;'></div>
-        <div>" . $row['icerik'] . "</div>
+        <div>" . $row['haber'] . "</div>
         <div style='height: 10px;'></div>
         <div style='color: gray;'>" . $row['kategori'] . "</div>
         

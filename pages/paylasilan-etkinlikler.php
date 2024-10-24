@@ -48,7 +48,7 @@ if ($data->num_rows > 0) {
         
         <a href = '../db/crud/deletee.php?id=" . $row['id'] . "' class='p-2 border border-0   rounded-2xl text-red-600 mr-5 hover:bg-[#ff0000ab]  hover:text-black' >Sil</a>
                 <a href ='updatee-from.php?id=" . $row ['id'] . "'class='p-2 border border-0   rounded-2xl text-green-600 mr-5 hover:bg-[#11a411b0]  hover:text-black mb-3 ' >Güncelle</a>
-                <hr class='mt-4'>
+            <hr class='mt-4 color-black border-1 h-[2px] bg-black'>
       </div>";
 
 

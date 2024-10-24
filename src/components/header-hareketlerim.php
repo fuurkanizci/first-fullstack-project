@@ -11,6 +11,8 @@ include('../../db/data.php');
 ?>
 
 
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../plugins/node_modules/tailwindcss/tailwind.css">
 <header>
     <div class="bg-transparent text-white box-border  ">
 

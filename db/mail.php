@@ -19,7 +19,7 @@ $mail = new PHPMailer(true);
         $mail->Port       = 587;
 
         $mail->setFrom('fuurkanizci.10@gmail.com', ' Haberler&Etkinlikler Bilgilendirme ');
-        $mail->addAddress('furkanizci_10@icloud.com', 'Furkan İzci');
+        $mail->addAddress('furkanizci_10@icloud.com', 'Furkan Izci');
 
         $mail->isHTML(true);
         $mail->Subject = $konu;

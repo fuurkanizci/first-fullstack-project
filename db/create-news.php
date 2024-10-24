@@ -7,8 +7,9 @@ include "mail.php";
 $newsTitle=$_POST["haber_basligi"];
 $newsAbout=$_POST["haber_konusu"];
 $new=$_POST["haber"];
-if(mysqli_query($deneme, "INSERT INTO news(baslik, kategori, haber ) VALUES('".$newsTitle."' ,'".$newsAbout."', '".$new."')") OR DIE ("Hata: Kayıt İşlemi Gerçekleşmedi.")) {
-    mail_gonder("Yeni Haber Eklendi", $newsTitle, $newsAbout, $new, "furkanizci_10@icloud.com");header("Refresh:2; ../pages/haberler.php");
+$userId=$_SESSION["user"]['id'];
+if(mysqli_query($deneme, "INSERT INTO news(baslik, kategori, haber, user_id ) VALUES('".$newsTitle."' ,'".$newsAbout."', '".$new."', '".$userId."')") OR DIE ("Hata: Kayıt İşlemi Gerçekleşmedi.")) {
+    mail_gonder("Yeni Haber Eklendi", $newsTitle, $newsAbout, $new, $userId, "furkanizci_10@icloud.com");header("Refresh:2; ../pages/haberler.php");
     echo "<div class=''>Haber Eklendi Yönlendiriliyorsunuz.";
 }
 else

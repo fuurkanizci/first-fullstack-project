@@ -17,7 +17,6 @@ $footer='../src/components/footer.php';
 
 <html lang="en">
 <head>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css">
     <link rel="stylesheet" href="./style.css">

@@ -8,9 +8,13 @@ if (!isset($_SESSION['user'])) {
 }
 include('../../db/db.php');
 include('../../db/data.php');
+
 ?>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../plugins/node_modules/tailwindcss/tailwind.css">
 
-
+<link rel="stylesheet" href="../plugins/fontawesome-free-6.6.0-web/css/fontawesome.css">
+<link rel="stylesheet" href="../plugins/fontawesome-free-6.6.0-web/css/solid.min.css">
 <header>
     <div class="bg-transparent text-neutral-300 box-border  ">
 
@@ -24,7 +28,7 @@ include('../../db/data.php');
                 <button id="activitiesButton" class="p-2 border border-0 rounded-2xl  mr-5 hover:bg-[#00B9FF45] "><?= $myActivities?></button>
                 <button id="eventsButton" class="p-2 border border-0 rounded-2xl  mr-5 hover:bg-[#00B9FF45] "><?= $events?></button>
                 <button id="newsButton" class="p-2 border border-0 rounded-2xl  mr-5 hover:bg-[#00B9FF45] "><?= $news?></button>
-                <a id="logOutButton"  class=" p-2 border border-1 border-white hover:border-[red] rounded-full hover:bg-[#FF000028] absolute top-4 right-4"><img src='../src/assets/icos/logout.png'alt='add'/></a>
+                <a id="logOutButton"  class=" p-2 border border-1 border-white hover:border-[red]  rounded-full hover:text-[#ff0000] hover:bg-[#FF000028] absolute top-4 right-4"><i class="fa-solid fa-right-from-bracket "></i></a>
             </div>
         </nav>
     </div>
