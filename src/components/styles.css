@@ -1,0 +1,28 @@
+
+.anim {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.anim::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #f0a500;
+    bottom: 0;
+    left: 0;
+    transition: width 0.4s ease;
+}
+
+.anim:hover::after {
+    width: 100%;
+}
+
+.anim:hover {
+    color: #f0a500;
+}

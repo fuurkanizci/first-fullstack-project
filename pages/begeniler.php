@@ -19,25 +19,24 @@
 include "../db/db.php";
 include "../db/data.php";
 
+$headerAct='../src/components/act-files-header.php';
+include $headerAct;
 $cfg='../src/components/new-page-config.php';
-?>
-<?php
-include('../db/db.php');
-$header='../src/components/header.php';
-$sorgu = "SELECT id, content, content_type, users_name, date_time FROM likes";
+$userId = $_SESSION['user']['id'];
+$footer='../src/components/footer.php';
+$sorgu = "SELECT * FROM likes where user_id='$userId'";
 $data = $deneme->query($sorgu);
 
 if ($data->num_rows > 0) {
     while ($row = $data->fetch_assoc()) {
-        echo "<div style='padding: 0px 95px;'>
-<div class='flex flex-row justify-between'>    
-        <div style='font-weight: bold; font-size: 20px;'>"  . $row['content'] . "</div>
-        <a href = '../db/likes.php?id=" . $row['id'] . "' class='p-2 border border-0   rounded-2xl text-red-600 mr-5 hover:bg-[#ffff00ab]  hover:text-black' ><img src='../src/assets/icos/favorite.png' alt='like'></a></div>
-    <div style='height: 10px;'></div>
-        <div>" . $row['content_type'] . "</div>
-        <div style='height: 10px;'></div>
+        echo "<div style='padding: 0px 95px;' class='px-[30rem] text-black'>
+        <div >" .'Haber No:' . $row['news_id'] . "</div>
+         <div style='height: 10px;'></div>
+        <div>Etkinlik No:" . $row['events_id'] . "</div>
+      
+            
         
-    <a href = '../db/comments.php?id=" . $row['users_name'] . "' class='p-2 border border-0   rounded-2xl ' ><img src='../src/assets/icos/comment.png' alt='comment'></a>
+        <a href = '../db/crud/delete-comments.php?id=" . $row['id'] . "' class='p-2 border border-0   rounded-2xl text-red-600 mr-5 hover:bg-[#ff0000ab]  hover:text-black' >Sil</a>
                 <hr class='mt-4'>
       </div>";
 
@@ -47,8 +46,8 @@ if ($data->num_rows > 0) {
 
 }
 
+ include $footer;?>
 
-?>
 
 
 <?php include $cfg;?>

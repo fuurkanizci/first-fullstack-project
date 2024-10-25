@@ -21,14 +21,13 @@ $footer='../src/components/footer.php';
     <link rel="icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
 </head>
 
-<body class="h-full w-full font-serif overflow-hidden bg-orange-50">
-<?php
-include $header;
+<body class="h-full w-full  overflow-hidden bg-orange-50">
+<div class="absolute z-50 w-full top-0 left-0 bg-transparent text-white">
+    <?php
 
-
-
-
+    include $header;
 ?>
+</div>
 <div id="loading" class="loader loader-index"></div>
 <script>
     window.addEventListener("load", () => {

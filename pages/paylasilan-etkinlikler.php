@@ -34,7 +34,8 @@
 <?php
 include('../db/db.php');
 $header='../src/components/header.php';
-$sorgu = "SELECT id, baslik, icerik, kategori FROM events";
+$userId = $_SESSION['user']['id'];
+$sorgu = "SELECT * FROM events where user_id='$userId'";
 $data = $deneme->query($sorgu);
 
 if ($data->num_rows > 0) {

@@ -35,8 +35,10 @@
 
 <?php
 include('../db/db.php');
+$userId=$_SESSION['user']['id'];
+
 $header='../src/components/header.php';
-$sorgu = "SELECT id, news_id, events_id, comment FROM comments";
+$sorgu = "SELECT * FROM comments where user_id=$userId";
 $data = $deneme->query($sorgu);
 
 if ($data->num_rows > 0) {

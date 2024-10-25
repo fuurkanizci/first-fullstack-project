@@ -31,7 +31,8 @@
 <?php
 include('../db/db.php');
 $header='../src/components/header.php';
-$sorgu = "SELECT id, baslik, haber, kategori FROM news";
+$userId = $_SESSION['user']['id'];
+$sorgu = "SELECT * FROM news where user_id='$userId'";
 $data = $deneme->query($sorgu);
 
 if ($data->num_rows > 0) {
@@ -55,7 +56,7 @@ if ($data->num_rows > 0) {
 }
 
 
-echo "<a class='' href='./etkinlik-ekleme.php' ><img src='../src/assets/icos/plus.png' class='absolute top-4 right-4 border border-green-500 p-3 rounded-full hover:bg-green-500' alt='add'/></a>";
+echo "<a class='' href='./haber-ekleme.php' ><img src='../src/assets/icos/plus.png' class='absolute top-4 right-4 border border-green-500 p-3 rounded-full hover:bg-green-500' alt='add'/></a>";
 ?>
 
 

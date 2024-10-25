@@ -12,28 +12,27 @@ include('../../db/data.php');
 ?>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="../../plugins/node_modules/tailwindcss/tailwind.css">
+<link rel="stylesheet" href="../../pages/style.css  ">
 
 <link rel="stylesheet" href="../plugins/fontawesome-free-6.6.0-web/css/fontawesome.css">
 <link rel="stylesheet" href="../plugins/fontawesome-free-6.6.0-web/css/solid.min.css">
-<header>
-    <div class="bg-transparent text-neutral-300 box-border  ">
-
-        <nav class="flex justify-center items-center p-5">
 
 
-            <div class="flex flex-row justify-center items-center text-xl">
-                <button id="homeButton" class="p-2 border border-0   rounded-2xl  mr-5 hover:bg-[#00FF0028] color"><?= $home ?></button>
-                <button id="newsAddButton" class="p-2 border border-0   rounded-2xl  mr-5 hover:bg-[#00FF0028] color"><?= $newsAdd ?></button>
-                <button id="eventsAddButton" class="p-2 border border-0 rounded-2xl  mr-5 hover:bg-[#00FF0028] "><?= $eventsAdd ?></button>
-                <button id="activitiesButton" class="p-2 border border-0 rounded-2xl  mr-5 hover:bg-[#00B9FF45] "><?= $myActivities?></button>
-                <button id="eventsButton" class="p-2 border border-0 rounded-2xl  mr-5 hover:bg-[#00B9FF45] "><?= $events?></button>
-                <button id="newsButton" class="p-2 border border-0 rounded-2xl  mr-5 hover:bg-[#00B9FF45] "><?= $news?></button>
-                <a id="logOutButton"  class=" p-2 border border-1 border-white hover:border-[red]  rounded-full hover:text-[#ff0000] hover:bg-[#FF000028] absolute top-4 right-4"><i class="fa-solid fa-right-from-bracket "></i></a>
-            </div>
-        </nav>
-    </div>
 
-</header>
+
+
+<div class="flex flex-row justify-center bg-transparent items-center text-3xl justify-evenly z-[1000]">
+
+    <div><a class="anim text-white" href="">Anasayfa</a></div>
+    <div><a class="anim text-white" href="./haberler.php">Haberler</a></div>
+    <div><a class="anim text-white" href="./etkinlikler.php">Etkinlikler</a></div>
+    <div><a class="anim text-white" href="./hareketlerim.php">Hareketlerim</a></div>
+</div>
+<a id="logOutButton"  class=" p-2 border border-1 border-white hover:border-[red]  rounded-full hover:text-[#ff0000] hover:bg-[#FF000028] absolute top-4 right-4"><i class="fa-solid fa-right-from-bracket "></i></a>
+
+
+
+
 
 
 <script>

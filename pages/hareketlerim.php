@@ -36,11 +36,15 @@ $footer='../src/components/footer.php';
 
 
 </head>
-<body class="h-full w-full font-serif overflow-hidden bg-orange-50">
+<body class="h-full w-full  overflow-hidden bg-orange-50">
 
-<?php
-include $header_activities; ?>
-<div class="bgi opacity-200 ">
+<div class="absolute z-50 w-full top-0 left-0 bg-transparent text-white">
+    <?php
+
+    include $header_activities;
+    ?>
+</div>
+<div class="bgi opacity-100">
     <img class="w-full h-screen object-cover " src="../src/assets/imgs/activities.png" alt="asd">
     <div class="overlay"></div>
 </div>

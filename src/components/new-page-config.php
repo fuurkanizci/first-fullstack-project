@@ -13,7 +13,7 @@ $header='../src/components/header.php';
 $footer='../src/components/footer.php';
 ?>
 <?php
-include $header;
+
 
 ?>
 <!doctype html>
@@ -32,7 +32,7 @@ include $header;
     <link rel="icon" href="../assets/icos/favicon.ico" type="image/x-icon">
 </head>
 
-<body class="h-full w-full font-serif overflow-hidden bg-orange-50">
+<body class="h-full w-full  overflow-hidden bg-orange-50">
 
 
 <div id="loading" class="loader loader-index"></div>

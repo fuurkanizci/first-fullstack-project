@@ -52,7 +52,7 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-$userName=$_SESSION ['user']['name'];
+$userName = $_SESSION['user']['name'];
 $sorgu = "SELECT * FROM news";
 $data = $deneme->query($sorgu);
 
@@ -60,7 +60,6 @@ if ($data->num_rows > 0) {
     while ($row = $data->fetch_assoc()) {
         $news_id = $row['id'];
         $user_id = $row['user_id'];
-        $comment_id = $row['comments_id'];
 
         $likesQuery = "SELECT COUNT(*) AS likes FROM likes WHERE news_id = $news_id AND type = 'like'";
         $likesResult = mysqli_query($deneme, $likesQuery);
@@ -70,29 +69,27 @@ if ($data->num_rows > 0) {
         $typeResult = mysqli_query($deneme, $typeQuery);
         $type = (mysqli_num_rows($typeResult) > 0) ? mysqli_fetch_assoc($typeResult)['type'] : 0;
 
-        $userQuery="SELECT name FROM users WHERE id = $user_id";
+        $userQuery = "SELECT name FROM users WHERE id = $user_id";
         $userResult = mysqli_query($deneme, $userQuery);
         $userCount = mysqli_fetch_assoc($userResult);
 
 
-        $commentQuery = "SELECT comment FROM comments WHERE id = $comment_id";
+        $commentQuery = "SELECT comment, created_at FROM comments WHERE news_id = $news_id";
         $commentResult = mysqli_query($deneme, $commentQuery);
-        $commentCount = mysqli_fetch_assoc($commentResult);
-
 
         echo '
 <div>
 <section class="bg-white p-2 md:p-6 rounded-2xl border border-gray-300 max-w-xl mx-auto mt-[15vh] ">
     <details open class="border-b border-gray-300">
         <summary class="outline-none list-none py-6 text-lg font-bold cursor-pointer relative flex justify-between rounded-lg select-none hover:after:opacity-75 focus-visible:ring-4 focus-visible:ring-gray-100 after:content-[\'\'] after:absolute after:right-0 after:top-6 after:h-6 after:w-6 after:bg-[url(\'data:image/svg+xml;charset=UTF-8,<svg class=\\\'w-6 h-6\\\' fill=\\\'none\\\' stroke=\\\'currentColor\\\' viewBox=\\\'0 0 24 24\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\'><path stroke-linecap=\\\'round\\\' stroke-linejoin=\\\'round\\\' stroke-width=\\\'2\\\' d=\\\'M19 9l-7 7-7-7\\\'></path></svg>\')] after:opacity-40 after:transition-transform after:duration-150 after:ease">
-             <div style="font-weight: bold; font-size: 20px;">' . htmlspecialchars($row["baslik"]) . '</div>
+            <div style="font-weight: bold; font-size: 20px;">' . htmlspecialchars($row["baslik"]) . '</div>
         </summary>
         <article class="animate-slide-in">
-       <div style="font-weight: bold; font-size: 20px;">Paylaşan: ' . htmlspecialchars($userCount["name"]) . '</div>
-       <div class="my-4">' . htmlspecialchars($row["haber"]) . '</div>
-       <div class="flex flex-row gap-3">
+            <div style="font-weight: bold; font-size: 20px;">Paylaşan: ' . htmlspecialchars($userCount["name"]) . '</div>
+            <div class="my-4">' . htmlspecialchars($row["haber"]) . '</div>
+            <div class="flex flex-row gap-3">
                 <a href="./comments.php?id=' . $row["id"] . '" class="pr-2 anim-comment">
-                      <i class="fa-regular fa-comment"></i>
+                    <i class="fa-regular fa-comment"></i>
                 </a>
                 <button class="like ' . (($type == "like") ? "selected" : "") . '" 
                     data-new-id="' . $news_id . '"
@@ -101,22 +98,31 @@ if ($data->num_rows > 0) {
                     <span class="likes_count" data-count="' . $likesCount . '">' . $likesCount . '</span>
                 </button>
             </div>
-       </article>
+        </article>
     </details>
 
-    <details class="border-b  border-gray-300">
-        <summary class=" outline-none list-none py-6 text-lg font-bold cursor-pointer relative flex justify-between rounded-lg select-none hover:after:opacity-75 focus-visible:ring-4 focus-visible:ring-gray-100 after:content-[\'\'] after:absolute after:right-0 after:top-6 after:h-6 after:w-6 after:bg-[url(\'data:image/svg+xml;charset=UTF-8,<svg class=\\\'w-6 h-6\\\' fill=\\\'none\\\' stroke=\\\'currentColor\\\' viewBox=\\\'0 0 24 24\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\'><path stroke-linecap=\\\'round\\\' stroke-linejoin=\\\'round\\\' stroke-width=\\\'2\\\' d=\\\'M19 9l-7 7-7-7\\\'></path></svg>\')] after:opacity-40 after:transition-transform after:duration-150 after:ease">
-            yorum görmek için
+    <details class="border-b border-gray-300">
+        <summary class="outline-none list-none py-6 text-lg font-bold cursor-pointer relative flex justify-between rounded-lg select-none hover:after:opacity-75 focus-visible:ring-4 focus-visible:ring-gray-100 after:content-[\'\'] after:absolute after:right-0 after:top-6 after:h-6 after:w-6 after:bg-[url(\'data:image/svg+xml;charset=UTF-8,<svg class=\\\'w-6 h-6\\\' fill=\\\'none\\\' stroke=\\\'currentColor\\\' viewBox=\\\'0 0 24 24\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\'><path stroke-linecap=\\\'round\\\' stroke-linejoin=\\\'round\\\' stroke-width=\\\'2\\\' d=\\\'M19 9l-7 7-7-7\\\'></path></svg>\')] after:opacity-40 after:transition-transform after:duration-150 after:ease">
+            Yorumları görmek için
         </summary>
         <article class="animate-slide-in">
-       <div class="my-4">' . htmlspecialchars($commentCount["comment"]) . '</div>
-         </article>
+';
+
+        while ($commentRow = mysqli_fetch_assoc($commentResult)) {
+            echo '
+            <div class="my-4">
+                <p>' . htmlspecialchars($commentRow["comment"]) . '</p>
+                <div class="text-gray-500 text-sm">Yorum Tarihi: ' . htmlspecialchars($commentRow["created_at"]) . '</div>
+            </div>  
+            <hr class="my-2 border-gray-300">';
+        }
+        echo '
+        </article>
     </details>
-    
-    </div>';
+</div>';
     }
-} else {
-    echo "<p style='text-align:center;'>Henüz eklenmiş bir haber yok.</p>";
+
+
 }
 ?>
 
