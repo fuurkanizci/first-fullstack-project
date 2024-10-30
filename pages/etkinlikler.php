@@ -77,7 +77,7 @@ if ($data->num_rows > 0) {
         </summary>
         <article class="animate-slide-in">
             <div style="font-weight: bold; font-size: 20px;">Paylaşan: ' . htmlspecialchars($userCount["name"]) . '</div>
-            <div class="my-4">' . htmlspecialchars($row["icerik"]) . '</div>
+            <div class="my-4 "><p class="">' . htmlspecialchars($row["kategori"]) . '</p></div>
             <div class="flex flex-row gap-3">
                 <a href="./comments.php?id=' . $row["id"] . '" class="pr-2 anim-comment">
                     <i class="fa-regular fa-comment"></i>
@@ -104,13 +104,11 @@ if ($data->num_rows > 0) {
             <div class="my-4">
                 <p>' . htmlspecialchars($commentRow["comment"]) . ' </p>
                 <div class="text-gray-500 text-sm">Yorum Tarihi: ' . htmlspecialchars($commentRow["created_at"]) . '</div>
-            <!-- Cevapla butonu ve cevaplama formunu açan accordion -->
+
                 <button onclick="toggleReplyForm(' . $commentRow["id"] . ')" class="text-blue-500 underline">Cevapla</button>
                 
-                <!-- Yorum ve Cevapla Butonu -->
 <div class="my-4">
     
-    <!-- Yanıt Formu (Başlangıçta gizlenmiş olarak) -->
     <details id="replyForm-' . htmlspecialchars($commentCount["id"]) . '" class="reply-form hidden mt-2">
         <summary class="text-gray-700">Yanıt Gönder</summary>
         <textarea placeholder="Yanıtınızı yazın..." class="w-full p-2 mt-2 border rounded"></textarea>
@@ -182,15 +180,12 @@ if ($data->num_rows > 0) {
     }
 
 
-        // Açılır yanıt formunu göster/gizle işlevi
         function toggleReplyForm(commentId) {
         const replyForm = document.getElementById("replyForm-" + commentId);
         if (replyForm) {
-        replyForm.classList.toggle("hidden"); // Sınıfı aç/kapa yaparak formu göster/gizle
+        replyForm.classList.toggle("hidden");
     }
     }
-
-        // Cevap gönderme işlevi
         function submitReply(commentId) {
         const replyForm = document.getElementById("replyForm-" + commentId);
         const replyTextArea = replyForm.querySelector("textarea");
@@ -200,8 +195,6 @@ if ($data->num_rows > 0) {
 
         if (replyText) {
         alert("Yanıtınız gönderildi: " + replyText);
-
-        // Formu temizleyip gizle
         replyTextArea.value = "";
         replyForm.classList.add("hidden");
     } else {

@@ -1,25 +1,39 @@
-<link rel="shortcut icon" href="../../src/assets/icos/favicon.ico" type="image/x-icon">
-
 <?php
-include '../db.php';
-echo "<link rel='stylesheet' href='../../plugins/node_modules/tailwindcss/tailwind.css'>";
-if (isset($_GET['id'])) {
+
+
+include('../db.php');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+if (isset($_GET['id']) && isset($_GET['type'])) {
     $id = intval($_GET['id']);
+    $type = $_GET['type'];
 
-    $silme_sorgu = "DELETE FROM news WHERE id = ?";
-    $stmt = $deneme->prepare($silme_sorgu);
-    $stmt->bind_param("i", $id);
-
-    if ($stmt->execute()) {
-        echo "Haber başarıyla silindi.";
-        header ("Refresh:2; ../../pages/paylasilan-haberler.php");
-        exit();
-    } else {
-        echo "Silme işlemi başarısız: " . $deneme->error;
+    if ($type === 'news') {
+        $sorgu = "DELETE FROM news WHERE id = $id";
+        if (mysqli_query($deneme, $sorgu) === false) {
+            die("Hata: " . mysqli_error($deneme));
+        }
+        header("Location: ../../pages/paylasilan-haberler.php");
+        exit;
     }
-
-    $stmt->close();
 }
 
-$deneme->close();
+if (isset($_POST['sil'])) {
+    if (!empty($_POST['news_ids'])) {
+        $news_ids = $_POST['news_ids'];
+        $ids_string = implode(',', array_map('intval', $news_ids));
+        $sorgu = "DELETE FROM news WHERE id IN ($ids_string)";
+        if (mysqli_query($deneme, $sorgu) === false) {
+            die("Hata: " . mysqli_error($deneme));
+            var_dump($deneme);
+            return false ;
+        }
+    }
+
+
+    header("Location: ../../pages/paylasilan-haberler.php");
+    exit;
+}
+ob_end_flush();
 ?>

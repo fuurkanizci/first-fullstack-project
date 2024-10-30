@@ -1,34 +1,18 @@
 <?php
-session_start();
 include 'db.php';
 include "mail.php";
-
-if (!isset($_SESSION["user"])) {
-    die("Kullanıcı oturumu açık değil.");
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+$newsTitle=$_POST["haber_basligi"];
+$newsAbout=$_POST["haber_konusu"];
+$news=$_POST["haber"];
+$userId=$_SESSION["user"]['id'];
+if(mysqli_query($deneme, "INSERT INTO news(baslik, kategori, haber, user_id ) VALUES('".$newsTitle."' ,'".$newsAbout."', '".$news."', '".$userId."')") OR DIE ("Hata: Kayıt İşlemi Gerçekleşmedi.")) {
+    echo mail_gonder("Yeni haber Eklendi", $newsTitle, $newsAbout, $news, $userId, "furkanizci_10@icloud.com");
+  header("Refresh:2; ../pages/haberler.php");
 }
-
-$newsTitle = $_POST["haber_basligi"] ?? null;
-$newsAbout = $_POST["haber_konusu"] ?? null;
-$new = $_POST["haber"] ?? null;
-$userId = $_SESSION["user"]['id'];
-if (isset($_POST["submit"]) && $newsTitle && $newsAbout && $new) {
-    // Güvenlik için verileri temizle
-    $newsTitle = mysqli_real_escape_string($deneme, $newsTitle);
-    $newsAbout = mysqli_real_escape_string($deneme, $newsAbout);
-    $new = mysqli_real_escape_string($deneme, $new);
-
-    // SQL sorgusu
-    $sorgu = "INSERT INTO news (baslik, kategori, haber, user_id) VALUES ('$newsTitle', '$newsAbout', '$new', '$userId')";
-
-    if (mysqli_query($deneme, $sorgu)) {
-        mail_gonder("Yeni Haber Eklendi", $newsTitle, $newsAbout, $new, $userId, "furkanizci_10@icloud.com");
-        echo "<div>Haber Eklendi, yönlendiriliyorsunuz...</div>";
-        header("Refresh:2; ../pages/haberler.php");
-    } else {
-        die("Hata: " . mysqli_error($deneme));
-    }
-} else {
-    echo "Eksik alanlar var, tüm bilgileri girin.";
-}
+else
+    echo "Kaydetmedi";
 
 ?>
