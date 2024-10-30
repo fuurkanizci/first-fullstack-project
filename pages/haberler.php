@@ -59,6 +59,7 @@ $data = $deneme->query($sorgu);
 if ($data->num_rows > 0) {
     while ($row = $data->fetch_assoc()) {
         $news_id = $row['id'];
+        $news_created_date = $row['created_at'];
         $user_id = $row['user_id'];
 
         $likesQuery = "SELECT COUNT(*) AS likes FROM likes WHERE news_id = $news_id AND type = 'like'";
@@ -86,7 +87,10 @@ if ($data->num_rows > 0) {
         </summary>
         <article class="animate-slide-in">
             <div style="font-weight: bold; font-size: 20px;">Paylaşan: ' . htmlspecialchars($userCount["name"]) . '</div>
-            <div class="my-4">' . htmlspecialchars($row["haber"]) . '</div>
+           <div class="my-4">
+                <p>' . htmlspecialchars($row["haber"]) . '</p>
+                <div class="text-gray-500 text-sm">Gönderi Tarihi: ' . htmlspecialchars($row["created_at"]) . '</div>
+            </div>  
             <div class="flex flex-row gap-3">
                 <a href="./comments.php?id=' . $row["id"] . '" class="pr-2 anim-comment">
                     <i class="fa-regular fa-comment"></i>
