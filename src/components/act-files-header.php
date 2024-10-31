@@ -11,8 +11,8 @@
 <body>
 <div class="flex flex-row justify-center items-center text-3xl justify-evenly">
     <div><a class="anim text-black" href="./haberler.php">Haberler</a></div>
-    <div><a class="anim text-black" href=".pages/index.php">Anasayfa</a></div>
-    <div><a class="anim text-black" href=".pages/hareketlerim.php">Hareketlerim</a></div>
+    <div><a class="anim text-black" href="./index.php">Anasayfa</a></div>
+    <div><a class="anim text-black" href="./hareketlerim.php">Hareketlerim</a></div>
 </div>
 </body>
 </html>

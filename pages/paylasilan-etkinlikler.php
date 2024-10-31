@@ -13,15 +13,25 @@
 </head>
 
 <body class="bg-orange-50">
-<div class="flex flex-row justify-center items-center text-3xl justify-evenly">
-    <div><a class="anim text-black" href="./paylasilan-haberler.php">Haberler</a></div>
-    <div><a class="anim text-black" href="./index.php">Anasayfa</a></div>
-</div>
 
+<div class="flex flex-row justify-center items-center text-3xl justify-evenly">
+    <div class="anim-head"><a class=" " href="./index.php">Anasayfa</a>
+    </div>
+    <div class="anim-head"><a class=" " href="./hareketlerim.php">Hareketlerim</a>
+    </div>
+    <div class="anim-head"><a class=" " href="./paylasilan-haberler.php">Paylaşılan Haberler</a>
+    </div>
+    <div class="anim-head"><a class=" " href="./yorumlar.php">Yorumlarım</a>
+    </div>
+    <div class="anim-head"><a class=" " href="./begeniler.php">Beğenilerim</a>
+    </div>
+
+</div>
 <div id="loading" class="loader loader-index"></div>
 
 <form id="silForm" method="post" action="../db/crud/deletee.php">
-    <?php
+
+<?php
     include('../db/db.php');
     session_start();
     $userId = $_SESSION['user']['id'];

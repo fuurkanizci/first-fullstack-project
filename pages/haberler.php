@@ -29,11 +29,15 @@
 <!-- Navigation -->
 <div class="flex flex-row justify-center items-center text-3xl justify-evenly">
     <div>
+        <a class="anim text-black" href="./index.php">Anasayfa</a>
+    </div>
+    <div>
         <a class="anim text-black" href="./etkinlikler.php">Etkinlikler</a>
     </div>
     <div>
-        <a class="anim text-black" href="./index.php">Anasayfa</a>
+        <a class="anim text-black" href="./hareketlerim.php">Hareketlerim</a>
     </div>
+
 </div>
 
 <style>

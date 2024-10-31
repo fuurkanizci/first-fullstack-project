@@ -109,3 +109,61 @@ hr{
 .selected {
     color: dodgerblue;
 }
+
+
+
+.anim-head {
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.anim-head::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #f0a500;
+    bottom: 0;
+    left: 0;
+    transition: width 0.4s ease;
+}
+
+.anim-head:hover::after {
+    width: 100%;
+}
+
+.anim-head:hover {
+    color: #f0a500;
+}
+
+.anim-foot {
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.anim-foot::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #f0a500;
+    bottom: 0;
+    left: 0;
+    transition: width 0.4s ease;
+}
+
+.anim-foot:hover::after {
+    width: 100%;
+}
+
+.anim-foot:hover {
+    color: #f0a500;
+}

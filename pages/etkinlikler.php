@@ -18,8 +18,10 @@
 <body class="bg-orange-50">
 
 <div class="flex flex-row justify-center items-center text-3xl justify-evenly">
-    <div><a class="anim text-black" href="./haberler.php">Haberler</a></div>
     <div><a class="anim text-black" href="./index.php">Anasayfa</a></div>
+    <div><a class="anim text-black" href="./haberler.php">Haberler</a></div>
+    <div><a class="anim text-black" href="./hareketlerim.php">Hareketlerim</a></div>
+
 </div>
 <a href='./etkinlik-ekleme.php'>
     <img src='../src/assets/icos/plus.png'
@@ -62,61 +64,82 @@ if ($data->num_rows > 0) {
         $commentResult = mysqli_query($deneme, $commentQuery);
 
         echo '
-<div>
-<section class="bg-white p-2 md:p-6 rounded-2xl border border-gray-300 max-w-xl mx-auto mt-[15vh] ">
-    <details open class="border-b border-gray-300">
-        <summary class="outline-none list-none py-6 text-lg font-bold cursor-pointer relative flex justify-between rounded-lg select-none hover:after:opacity-75 focus-visible:ring-4 focus-visible:ring-gray-100">
-            <div style="font-weight: bold; font-size: 20px;">' . htmlspecialchars($row["baslik"]) . '</div>
-        </summary>
-        <article class="animate-slide-in">
-            <div style="font-weight: bold; font-size: 20px;">Paylaşan: ' . htmlspecialchars($userCount["name"]) . '</div>
-            <div class="my-4">
-                <p>' . htmlspecialchars($row["kategori"]) . '</p>
-                <div class="text-gray-500 text-sm">Gönderi Tarihi: ' . htmlspecialchars($row["created_at"]) . '</div>
-            </div> 
-            <div class="flex flex-row gap-3">
-                <a href="./comments.php?id=' . $row["id"] . '" class="pr-2 anim-comment">
-                    <i class="fa-regular fa-comment"></i>
-                </a>
-                <button class="like ' . (($type == "like") ? "selected" : "") . '" 
-                    data-new-id="' . $events_id . '"
-                    onclick="like(this, ' . $row["id"] . ')">
-                    <i class="fa-regular anim-like fa-thumbs-up"></i>
-                    <span class="likes_count" data-count="' . $likesCount . '">' . $likesCount . '</span>
-                </button>
-            </div>
-        </article>
-    </details>
+        <div>
+            <section class="bg-white p-2 md:p-6 rounded-2xl border border-gray-300 max-w-xl mx-auto mt-[15vh] ">
+                <details open class="border-b border-gray-300">
+                    <summary class="outline-none list-none py-6 text-lg font-bold cursor-pointer relative flex justify-between rounded-lg select-none hover:after:opacity-75 focus-visible:ring-4 focus-visible:ring-gray-100">
+                        <div style="font-weight: bold; font-size: 20px;">' . htmlspecialchars($row["baslik"]) . '</div>
+                    </summary>
+                    <article class="animate-slide-in">
+                        <div style="font-weight: bold; font-size: 20px;">Paylaşan: ' . htmlspecialchars($userCount["name"]) . '</div>
+                        <div class="my-4">
+                            <p>' . htmlspecialchars($row["kategori"]) . '</p>
+                            <div class="text-gray-500 text-sm">Gönderi Tarihi: ' . htmlspecialchars($row["created_at"]) . '</div>
+                        </div> 
+                        <div class="flex flex-row gap-3">
+                            <a href="./comments.php?id=' . $row["id"] . '" class="pr-2 anim-comment">
+                                <i class="fa-regular fa-comment"></i>
+                            </a>
+                            <button class="like ' . (($type == "like") ? "selected" : "") . '" 
+                                data-new-id="' . $events_id . '"
+                                onclick="like(this, ' . $row["id"] . ')">
+                                <i class="fa-regular anim-like fa-thumbs-up"></i>
+                                <span class="likes_count" data-count="' . $likesCount . '">' . $likesCount . '</span>
+                            </button>
+                        </div>
+                    </article>
+                </details>
 
-    <details class="border-b border-gray-300">
-        <summary class="outline-none list-none py-6 text-lg font-bold cursor-pointer relative flex justify-between rounded-lg select-none hover:after:opacity-75 focus-visible:ring-4 focus-visible:ring-gray-100">
-            Yorumları görmek için
-        </summary>
-        <article class="animate-slide-in">';
+                <details class="border-b border-gray-300">
+                    <summary class="outline-none list-none py-6 text-lg font-bold cursor-pointer relative flex justify-between rounded-lg select-none hover:after:opacity-75 focus-visible:ring-4 focus-visible:ring-gray-100">
+                        Yorumları görmek için
+                    </summary>
+                    <article class="animate-slide-in">';
 
         while ($commentRow = mysqli_fetch_assoc($commentResult)) {
             echo '
-    <div class="my-4">
-        <p>' . htmlspecialchars($commentRow["comment"]) . ' </p>
-        <div class="text-gray-500 text-sm">Yorum Tarihi: ' . htmlspecialchars($commentRow["created_at"]) . '</div>
-        <div id="comments">
-            <div class="comment" id="comment' . $commentRow["id"] . '">
-                <button class="text-blue-600" onclick="showReplyForm(' . $commentRow["id"] . ')">Cevapla</button>
-                <div class="reply-form" id="replyForm-' . $commentRow["id"] . '" style="display:none;">
-                    <textarea id="replyText-' . $commentRow["id"] . '" placeholder="Yanıtınızı yazın..."></textarea>
-                    <a class="text-blue-600" href="../db/replies-db.php"(' . $commentRow["id"] . ')">Gönder</a>
-                    <button class="text-blue-600" href="../db/replies-db.php"(' . $commentRow["id"] . ')">Gönder</button>
-                </div>
-            </div>
-        </div>
-    </div>';
+                <div class="my-4">
+                    <p>' . htmlspecialchars($commentRow["comment"]) . '</p>
+                    <div class="text-gray-500 text-sm">Yorum Tarihi: ' . htmlspecialchars($commentRow["created_at"]) . '</div>
+                    <div id="comments">
+                        <div class="comment" id="comment' . $commentRow["id"] . '">
+                            <button class="text-blue-600" onclick="showReplyForm(' . $commentRow["id"] . ')">Cevapla</button>
+                            <form action="../db/replies-db.php" method="post" class="reply-form max-w-md mx-auto mt-4" style="display:none;" id="replyForm-' . $commentRow["id"] . '">
+                                <div>
+                                    <textarea name="reply_comment" id="reply_comment-' . $commentRow["id"] . '" placeholder="Yanıtınızı yazın..." class="w-full border border-gray-300 rounded-lg p-2"></textarea>
+                                    <input type="hidden" name="comment_id" value="' . $commentRow["id"] . '">
+                                    <button name="submit" type="submit" value="submit" id="submit-' . $commentRow["id"] . '"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Paylaş
+                                    </button>
+                                </div>
+                            </form>';
+
+            $replyQuery = "SELECT id, reply_comment, created_at FROM replies WHERE comment_id = " . $commentRow["id"];
+            $replyResult = mysqli_query($deneme, $replyQuery);
+
+            while ($replyRow = mysqli_fetch_assoc($replyResult)) {
+                echo '
+                    <div class="my-1 ml-4">
+                        <p class="text-gray-600 text-sm">' . htmlspecialchars($replyRow["reply_comment"]) . '</p>
+                        <div class="text-gray-400 text-xs">Cevap Tarihi: ' . htmlspecialchars($replyRow["created_at"]) . '</div>
+                    </div>';
+            }
+
+            echo '
+                        </div>
+                    </div>
+                </div>';
         }
+
         echo '
-        </article>
-    </details>
-</div>';
+                    </article>
+                </details>
+            </section>
+        </div>';
     }
 }
+
 ?>
 
 <script>
@@ -168,25 +191,25 @@ if ($data->num_rows > 0) {
         replyForm.style.display = replyForm.style.display === "none" ? "block" : "none";
     }
 
-    function submitReply(commentId) {
-        const replyText = document.getElementById(`replyText-${commentId}`).value;
-        if (!replyText.trim()) {
-            alert("Yanıt boş olamaz.");
-            return;
-        }
-
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "../db/replies-db.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                alert("Yanıt kaydedildi!");
-                document.getElementById(`replyForm-${commentId}`).style.display = "none";
-                document.getElementById(`replyText-${commentId}`).value = "";
-            }
-        };
-        xhr.send("commentId=" + commentId + "&replyText=" + encodeURIComponent(replyText));
-    }
+    // function submitReply(commentId) {
+    //     const replyText = document.getElementById(`replyText-${commentId}`).value;
+    //     if (!replyText.trim()) {
+    //         alert("Yanıt boş olamaz.");
+    //         return;
+    //     }
+    //
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open("POST", "../db/replies-db.php", true);
+    //     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    //     xhr.onreadystatechange = function() {
+    //         if (xhr.readyState === 4 && xhr.status === 200) {
+    //             alert("Yanıt kaydedildi!");
+    //             document.getElementById(`replyForm-${commentId}`).style.display = "none";
+    //             document.getElementById(`replyText-${commentId}`).value = "";
+    //         }
+    //     };
+    //     xhr.send("commentId=" + commentId + "&replyText=" + encodeURIComponent(replyText));
+    // }
 </script>
 
 </body>

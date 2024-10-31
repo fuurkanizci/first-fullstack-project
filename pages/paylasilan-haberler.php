@@ -14,8 +14,17 @@
 </head>
 <body class="bg-orange-50">
 <div class="flex flex-row justify-center items-center text-3xl justify-evenly">
-    <div><a class="anim text-black" href="./paylasilan-etkinlikler.php">Etkinlikler</a></div>
-    <div><a class="anim text-black" href="./index.php">Anasayfa</a></div>
+    <div class="anim-head"><a class=" " href="./index.php">Anasayfa</a>
+    </div>
+    <div class="anim-head"><a class=" " href="./hareketlerim.php">Hareketlerim</a>
+    </div>
+    <div class="anim-head"><a class=" " href="./paylasilan-etkinlikler.php">Paylaşılan Etkinlikler</a>
+    </div>
+    <div class="anim-head"><a  href="./begeniler.php">Beğenilerim</a>
+    </div>
+    <div class="anim-head"><a class=" " href="./yorumlar.php">Yorumlarım</a>
+    </div>
+
 </div>
 
 <div id="loading" class="loader loader-index"></div>
@@ -23,6 +32,7 @@
 <form id="silForm" method="post" action="../db/crud/delete.php">
     <?php
     include('../db/db.php');
+
     session_start();
     $userId = $_SESSION['user']['id'];
     $sorgu = "SELECT * FROM news WHERE user_id='$userId'";
@@ -50,7 +60,7 @@
     echo "<a class='' href='./haber-ekleme.php'><img src='../src/assets/icos/plus.png' class='absolute top-4 right-4 border border-green-500 p-3 rounded-full hover:bg-green-500' alt='add'/></a>";
     ?>
 
-    <button id='topluSilme' type='submit' name='sil' class='mt-4 p-2 bg-red-600 text-white rounded'>Seçili Haberleri Sil</button>
+    <button id='topluSilme' type='submit' name='sil' class='mt-4 p-2 bg-red-600 text-white rounded' disabled>Seçili Haberleri Sil</button>
 </form>
 
 <script>

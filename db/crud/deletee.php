@@ -30,7 +30,7 @@ if (isset($_POST['sil'])) {
             return false ;
         }
     }
-    header("Location: ../../pages/paylasilan-etkinlikler.php");
+    header("../../pages/paylasilan-etkinlikler.php");
     exit;
 }
 ob_end_flush();

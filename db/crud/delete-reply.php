@@ -9,8 +9,8 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
     $id = intval($_GET['id']);
     $type = $_GET['type'];
 
-    if ($type === 'comments') {
-        $sorgu = "DELETE FROM comments WHERE id = $id";
+    if ($type === 'reply') {
+        $sorgu = "DELETE FROM replies WHERE id = $id";
         if (mysqli_query($deneme, $sorgu) === false) {
             die("Hata: " . mysqli_error($deneme));
         }
@@ -19,11 +19,11 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
     }
 }
 
-if (isset($_POST['sil'])) {
-    if (!empty($_POST['comments_ids'])) {
-        $comments_ids = $_POST['comments_ids'];
-        $ids_string = implode(',', array_map('intval', $comments_ids));
-        $sorgu = "DELETE FROM comments WHERE id IN ($ids_string)";
+if (isset($_POST['silReply'])) {
+    if (!empty($_POST['reply_ids'])) {
+        $reply_ids = $_POST['reply_ids'];
+        $ids_string = implode(',', array_map('intval', $reply_ids));
+        $sorgu = "DELETE FROM replies WHERE id IN ($ids_string)";
         if (mysqli_query($deneme, $sorgu) === false) {
             die("Hata: " . mysqli_error($deneme));
             var_dump($deneme);
