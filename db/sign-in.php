@@ -17,7 +17,6 @@
 <?php
 
 echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
-session_start();
 error_reporting(0);
 include('db.php');
 

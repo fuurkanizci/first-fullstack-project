@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css">
     <link rel="stylesheet" href="../src/components/loading/loading.css">
 </head>
-<?php
+<?php 
+include('../db/db.php');
 $userName=$_SESSION ['user']['name'];
 ?>
 

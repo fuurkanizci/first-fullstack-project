@@ -11,7 +11,6 @@
 </head>
 <body class="bg-gray-800">
 <?php
-session_start();
 include '../db/db.php';
 $reply_id = $_GET['id'];
 

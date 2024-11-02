@@ -33,7 +33,6 @@
 
 <?php
     include('../db/db.php');
-    session_start();
     $userId = $_SESSION['user']['id'];
     $sorgu = "SELECT * FROM events WHERE user_id='$userId'";
     $data = $deneme->query($sorgu);

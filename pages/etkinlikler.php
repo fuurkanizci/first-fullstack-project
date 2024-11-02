@@ -46,6 +46,7 @@ $data = $deneme->query($sorgu);
 if ($data->num_rows > 0) {
     while ($row = $data->fetch_assoc()) {
         $events_id = $row['id'];
+        $news_created_date = $row['created_at'];
         $user_id = $row['user_id'];
 
         $likesQuery = "SELECT COUNT(*) AS likes FROM likes WHERE events_id = $events_id AND type = 'like'";
@@ -191,25 +192,6 @@ if ($data->num_rows > 0) {
         replyForm.style.display = replyForm.style.display === "none" ? "block" : "none";
     }
 
-    // function submitReply(commentId) {
-    //     const replyText = document.getElementById(`replyText-${commentId}`).value;
-    //     if (!replyText.trim()) {
-    //         alert("Yanıt boş olamaz.");
-    //         return;
-    //     }
-    //
-    //     const xhr = new XMLHttpRequest();
-    //     xhr.open("POST", "../db/replies-db.php", true);
-    //     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    //     xhr.onreadystatechange = function() {
-    //         if (xhr.readyState === 4 && xhr.status === 200) {
-    //             alert("Yanıt kaydedildi!");
-    //             document.getElementById(`replyForm-${commentId}`).style.display = "none";
-    //             document.getElementById(`replyText-${commentId}`).value = "";
-    //         }
-    //     };
-    //     xhr.send("commentId=" + commentId + "&replyText=" + encodeURIComponent(replyText));
-    // }
 </script>
 
 </body>
