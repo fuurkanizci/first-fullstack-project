@@ -6,7 +6,7 @@ if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit;
 }
-include ../../db/db.php ;
+include '../../db/db.php' ;
 ?>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="../../plugins/node_modules/tailwindcss/tailwind.css">

@@ -1,11 +1,4 @@
 
-<?php
-
-if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
-    exit;
-}
-?>
 <!doctype html>
 <?php
 include('../db/db.php');

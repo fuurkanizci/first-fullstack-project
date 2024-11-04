@@ -26,9 +26,12 @@ $data = $deneme->query($sorgu);
     <link rel="stylesheet" href="../plugins/fontawesome-free-6.6.0-web/css/solid.min.css">
      <link rel="shortcut icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <link rel="stylesheet" href="../src/components/loading/loading.css">
 </head>
 <body class="bg-orange-50">
 
@@ -39,19 +42,48 @@ $data = $deneme->query($sorgu);
 
 <!-- Loading Screen -->
 
+<div id="loading" class="loader loader-index"></div>
 <!-- Navigation -->
-<div class="flex flex-row justify-center items-center text-3xl justify-evenly">
-    <div>
-        <a class="anim text-black" href="./index.php">Anasayfa</a>
-    </div>
-    <div>
-        <a class="anim text-black" href="./etkinlikler.php">Etkinlikler</a>
-    </div>
-    <div>
-        <a class="anim text-black" href="./hareketlerim.php">Hareketlerim</a>
-    </div>
-</div>
 
+<nav class="relative px-4 py-4 flex justify-between items-center ">
+    <div class="lg:hidden">
+        <button class="navbar-burger flex items-start text-[#f0a500] p-3">
+            <svg class="block h-6 w-6 fill-current " viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Mobile menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+        </button>
+    </div>
+    <ul class="hidden absolute  mt-6 top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+        <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
+        <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./etkinlikler.php">Etkinlikler</a></li>
+        <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
+        <a id="logOutButton" class="  p-2 border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </a>
+    </ul>
+
+
+
+</nav>
+<div class="navbar-menu relative z-50 hidden">
+    <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+    <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-orange-50 border-r overflow-y-auto">
+        <div class="flex items-center mb-8">
+            <button class="navbar-close">
+                <svg class="h-6 w-6 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div>
+            <ul>
+                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./index.php">Ana Sayfa</a></li>
+                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./etkinlikler.php">Etkinlikler</a></li>
+                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./hareketlerim.php">Hareketlerim</a></li>
+                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="../db/logout.php">Çıkış</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
 <style>
     .selected {
         color: dodgerblue;
@@ -76,9 +108,6 @@ if ($data->num_rows > 0) {
         $userQuery = "SELECT name FROM users WHERE id = $user_id";
         $userResult = mysqli_query($deneme, $userQuery);
         $userCount = mysqli_fetch_assoc($userResult);
-
-        $commentQuery = "SELECT id, comment, created_at FROM comments WHERE news_id = $news_id";
-        $commentResult = mysqli_query($deneme, $commentQuery);
 
         echo '
         <div>
@@ -113,11 +142,16 @@ if ($data->num_rows > 0) {
                     </summary>
                     <article class="animate-slide-in">';
 
+        $commentQuery = "SELECT comments.id, comments.comment, comments.created_at, comments.user_id, users.name AS commenter_name 
+                         FROM comments 
+                         INNER JOIN users ON comments.user_id = users.id 
+                         WHERE comments.news_id = $news_id";
+        $commentResult = mysqli_query($deneme, $commentQuery);
+
         while ($commentRow = mysqli_fetch_assoc($commentResult)) {
             echo '
                 <div class="my-4">
-                
-                         <div class="text-gray-400 text-md">Yorum Yapan: ' . htmlspecialchars($userCount["name"]) .' </div>
+                    <div class="text-gray-400 text-md">Yorum Yapan: ' . htmlspecialchars($commentRow["commenter_name"]) . '</div>
                     <p>' . htmlspecialchars($commentRow["comment"]) . '</p>
                     <div class="text-gray-500 text-sm">Yorum Tarihi: ' . htmlspecialchars($commentRow["created_at"]) . '</div>
                     <div id="comments">
@@ -134,14 +168,16 @@ if ($data->num_rows > 0) {
                                 </div>
                             </form>';
 
-            $replyQuery = "SELECT id, reply_comment, created_at FROM replies WHERE comment_id = " . $commentRow["id"];
+            $replyQuery = "SELECT replies.id, replies.reply_comment, replies.created_at, users.name AS replier_name 
+                           FROM replies 
+                           INNER JOIN users ON replies.user_id = users.id 
+                           WHERE replies.comment_id = " . $commentRow["id"];
             $replyResult = mysqli_query($deneme, $replyQuery);
 
             while ($replyRow = mysqli_fetch_assoc($replyResult)) {
                 echo '
                     <div class="my-1 ml-4">
-                         <div class="text-gray-400 text-md">Cevaplayan: ' . htmlspecialchars($userCount["name"]) .' </div>
-                   
+                        <div class="text-gray-400 text-md">Cevaplayan: ' . htmlspecialchars($replyRow["replier_name"]) . '</div>
                         <p class="text-black-600 text-sm">' . htmlspecialchars($replyRow["reply_comment"]) . '</p>
                         <div class="text-gray-400 text-xs">Cevap Tarihi: ' . htmlspecialchars($replyRow["created_at"]) . '</div>
                     </div>';
@@ -160,13 +196,11 @@ if ($data->num_rows > 0) {
         </div>';
     }
 }
-
 ?>
 
-<script>
-    function like(element, newsId) {
 
-        window.addEventListener("load", () => {
+<script>
+    window.addEventListener("load", () => {
         const loader = document.querySelector(".loader");
         loader.classList.add("loader--hidden");
         loader.addEventListener("transitionend", () => {
@@ -174,18 +208,6 @@ if ($data->num_rows > 0) {
         });
     });
 
-
-        // AJAX call to like or unlike
-        $.post('../db/like-db.php', {news_id: newsId, user_id: <?php echo $sesUser; ?>}, function(response) {
-            if (response.success) {
-                const likesCountElement = $(element).find('.likes_count');
-                const currentCount = parseInt(likesCountElement.attr('data-count'));
-                const newCount = response.liked ? currentCount + 1 : currentCount - 1;
-                likesCountElement.text(newCount).attr('data-count', newCount);
-                $(element).toggleClass('selected');
-            }
-        }, 'json');
-    }
     function like(caller, news_id) {
         const isLiked = caller.classList.contains('selected');
         const userId = <?php echo $sesUser; ?>;
@@ -220,9 +242,36 @@ if ($data->num_rows > 0) {
                 console.error('Error:', error);
             });
     }
+
     function showReplyForm(commentId) {
-        $('#replyForm-' + commentId).toggle();
+        const replyForm = document.getElementById(`replyForm-${commentId}`);
+        replyForm.style.display = replyForm.style.display === "none" ? "block" : "none";
     }
+    document.addEventListener('DOMContentLoaded', function() {
+        // Hamburger menüyü açma kapama işlemleri
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        if (burger && menu) {
+            burger.addEventListener('click', function() {
+                menu.classList.toggle('hidden');
+            });
+        }
+
+        const closeButtons = document.querySelectorAll('.navbar-close, .navbar-backdrop');
+        closeButtons.forEach(close => {
+            close.addEventListener('click', function() {
+                menu.classList.add('hidden');
+            });
+        });
+
+        document.getElementById("logOutButton").addEventListener("click", function () {
+            if (confirm('Çıkmak İstediğine Emin Misin ?')) {
+                window.location.href = "../db/logout.php";
+            }
+            return false;
+        });
+    });
 </script>
 
 </body>
