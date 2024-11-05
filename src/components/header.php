@@ -22,7 +22,7 @@
             </svg>
         </button>
     </div>
-    <ul class="hidden absolute top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+    <ul class="hidden absolute top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-[85%] lg:space-x-6">
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./haberler.php">Haberler</a></li>
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./etkinlikler.php">Etkinlikler</a></li>

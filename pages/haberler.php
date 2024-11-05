@@ -51,7 +51,7 @@ $data = $deneme->query($sorgu);
             </svg>
         </button>
     </div>
-    <ul class="hidden absolute  mt-6 top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+    <ul class="hidden absolute  mt-6 top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:justify-center lg:items-center lg:w-[64%] lg:space-x-6">
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./etkinlikler.php">Etkinlikler</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
@@ -107,8 +107,8 @@ if ($data->num_rows > 0) {
         $userCount = mysqli_fetch_assoc($userResult);
 
         echo '
-        <div>
-            <section class="bg-white p-2 md:p-6 rounded-2xl border border-gray-300 max-w-xl mx-auto mt-[15vh] ">
+        <div class="max-sm:px-[10rem]">
+            <section class=" w-[30rem] bg-gray-300  p-2 md:p-6 rounded-2xl border border-gray-300  mx-auto mt-[15vh]   max-md:w-[24rem] ">
                 <details open class="border-b border-gray-300">
                     <summary class="outline-none list-none py-6 text-lg font-bold cursor-pointer relative flex justify-between rounded-lg select-none hover:after:opacity-75 focus-visible:ring-4 focus-visible:ring-gray-100">
                         <div style="font-weight: bold; font-size: 20px;">' . htmlspecialchars($row["baslik"]) . '</div>
@@ -270,12 +270,10 @@ if ($data->num_rows > 0) {
         });
     });
 </script>
-<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
     <?php
     $footer='../src/components/footer.php';
     include $footer;
 
     ?>
-</div>
 </body>
 </html>
