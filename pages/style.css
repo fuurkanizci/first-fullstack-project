@@ -36,13 +36,7 @@ header {
     z-index: 10;
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-}
+
 
 .anim {
     color: white;
@@ -75,9 +69,7 @@ footer {
 ul li a {
     transition: color 0.3s ease;
 }
-hr{
-    color: black !important;
-}
+
 .anim-comment {
 
      text-decoration: none;
@@ -141,7 +133,7 @@ hr{
 }
 
 .anim-foot {
-    color: #000000;
+    color: #736c6c;
     text-decoration: none;
     position: relative;
     display: inline-block;
@@ -166,4 +158,8 @@ hr{
 
 .anim-foot:hover {
     color: #f0a500;
+}
+
+.burger-width{
+    width: 100% !important;
 }

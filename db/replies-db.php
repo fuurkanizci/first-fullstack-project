@@ -1,5 +1,4 @@
 <?php
-// Veritabanı bağlantısını dahil ediyoruz
 include('db.php');
 
 if(isset($_POST['submit'])){
@@ -13,7 +12,6 @@ if ($commentId && $replyComment && $userId) {
     $stmt = $deneme->prepare("INSERT INTO replies (comment_id, user_id, reply_comment, created_at) VALUES (?, ?, ?, NOW())");
     $stmt->bind_param("iis", $commentId, $userId, $replyComment);
 
-    // Sorguyu çalıştırıyoruz
     if ($stmt->execute()) {
         echo "Yanıt başarıyla kaydedildi!";
         header("Location: ".$_SERVER['HTTP_REFERER']);

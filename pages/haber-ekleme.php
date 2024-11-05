@@ -1,3 +1,4 @@
+<?php      include('../db/db.php');  ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,8 +14,7 @@
     <link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css">
     <link rel="stylesheet" href="../src/components/loading/loading.css">
 </head>
-<?php 
-include('../db/db.php');
+<?php
 $userName=$_SESSION ['user']['name'];
 ?>
 
@@ -63,6 +63,12 @@ $userName=$_SESSION ['user']['name'];
         Paylaş
     </button>
 </form>
+<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
+    <?php
+    $footer='../src/components/footer.php';
+    include $footer;
 
+    ?>
+</div>
 </body>
 </html>

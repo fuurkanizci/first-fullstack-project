@@ -1,6 +1,6 @@
 <?php
+include('../db/db.php');
 echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
-include 'db.php';
 include "mail.php";
 $eventsTitle=$_POST["etkinlik_basligi"];
 $eventsAbout=$_POST["etkinlik_kategori"];

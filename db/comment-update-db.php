@@ -1,3 +1,5 @@
+
+<?php      include('../db/db.php');  ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,7 +18,6 @@
 <?php
 
 
-include './db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
     $id = $deneme->real_escape_string($_POST['id']);

@@ -26,8 +26,7 @@ if (isset($_POST['sil'])) {
         $sorgu = "DELETE FROM news WHERE id IN ($ids_string)";
         if (mysqli_query($deneme, $sorgu) === false) {
             die("Hata: " . mysqli_error($deneme));
-            var_dump($deneme);
-            return false ;
+
         }
     }
 

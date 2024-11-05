@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('../db/db.php');
 
 if (!isset($_SESSION['user'])) {
@@ -40,10 +39,8 @@ $data = $deneme->query($sorgu);
          class='absolute top-4 right-4 border border-green-600 p-3 rounded-full hover:bg-green-500' alt='add'/>
 </a>
 
-<!-- Loading Screen -->
 
 <div id="loading" class="loader loader-index"></div>
-<!-- Navigation -->
 
 <nav class="relative px-4 py-4 flex justify-between items-center ">
     <div class="lg:hidden">
@@ -58,7 +55,7 @@ $data = $deneme->query($sorgu);
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./etkinlikler.php">Etkinlikler</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
-        <a id="logOutButton" class="  p-2 border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
+        <a id="logOutButton" class="  p-2  text-3xl border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
             <i class="fa-solid fa-right-from-bracket"></i>
         </a>
     </ul>
@@ -273,6 +270,12 @@ if ($data->num_rows > 0) {
         });
     });
 </script>
+<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
+    <?php
+    $footer='../src/components/footer.php';
+    include $footer;
 
+    ?>
+</div>
 </body>
 </html>

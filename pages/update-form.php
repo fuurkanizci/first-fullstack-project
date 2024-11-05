@@ -1,3 +1,5 @@
+<?php
+include('../db/db.php'); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,7 +17,6 @@
 </head>
 
 
-<!-- Spinner -->
 <div id="loading"  class="loader loader-index"></div>
 <script>
     window.addEventListener("load", () => {
@@ -28,7 +29,6 @@
 </script>
 <body class="bg-gray-800">
 <?php
-include('../db/db.php');
 $id = $_GET['id'];
 
 
@@ -83,6 +83,12 @@ if ($row) {
     echo "<p>Veri bulunamadı.</p>";
 }
 ?>
+<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
+    <?php
+    $footer='../src/components/footer.php';
+    include $footer;
 
+    ?>
+</div>
 </body>
 </html>

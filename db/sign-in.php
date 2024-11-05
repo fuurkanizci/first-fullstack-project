@@ -1,3 +1,4 @@
+<?php      include('../db/db.php');  ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,7 +19,6 @@
 
 echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
 error_reporting(0);
-include('db.php');
 
 if (isset($_POST['giris'])) {
     $email = $_POST['email'];

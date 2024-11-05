@@ -1,11 +1,4 @@
 <?php
-
-if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
-    exit;
-}
-?>
-<?php
 include('../../db/db.php');
 include('../../db/data.php');
 $header='../src/components/header.php';

@@ -1,3 +1,4 @@
+<?php      include('../db/db.php');  ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -65,7 +66,7 @@ if (isset($_POST['submit'])) {
                         mysqli_stmt_bind_param($stmtInsert, "sss", $name, $email, $password);
                         if (mysqli_stmt_execute($stmtInsert)) {
                             echo mail_sign($name, $email, "furkanizci_10@icloud.com");
-                            header("Refresh:2; ../pages/index.php");
+                            header("Refresh:1; ../pages/login.php");
                             echo " <div>
  <img class='w-full h-screen object-cover ' src='../src/assets/imgs/welcome-up.jpg' alt='welcomeUpPage'>
 </div>";

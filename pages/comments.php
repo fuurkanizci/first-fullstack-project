@@ -1,3 +1,4 @@
+<?php      include('../db/db.php');  ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,7 +18,6 @@
 <body class="bg-gray-800">
 
 <?php
-include('../db/db.php');
 
 $id = $_GET['id'] ?? null;
 $kategori = null;
@@ -87,6 +87,10 @@ if ($kategori === 'haber') {
 $stmt->close();
 $deneme->close();
 ?>
+    <?php
+    $footer='../src/components/footer.php';
+    include $footer;
 
+    ?>
 </body>
 </html>

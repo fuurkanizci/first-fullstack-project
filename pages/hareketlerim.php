@@ -1,10 +1,9 @@
-
+<?php   include('../db/db.php'); ?>
 <!doctype html>
 <?php
-include('../db/db.php');
+
 include('../db/data.php');
 $header_activities='../src/components/header-hareketlerim.php';
-$footer='../src/components/footer.php';
 ?>
 
 <html lang="en">
@@ -78,9 +77,12 @@ $footer='../src/components/footer.php';
         });
     });
 </script>
-<?php
-include $footer;
+<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
+    <?php
+    $footer='../src/components/footer.php';
+    include $footer;
 
-?>
+    ?>
+</div>
 </body>
 </html>

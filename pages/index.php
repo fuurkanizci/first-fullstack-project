@@ -1,12 +1,12 @@
 
-<!doctype html>
+
 <?php
 include('../db/db.php');
 include('../db/data.php');
 $header='../src/components/header.php';
 $footer='../src/components/footer.php';
 ?>
-
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,13 +22,13 @@ $footer='../src/components/footer.php';
 </head>
 
 <body class="h-full w-full  overflow-hidden bg-orange-50">
+<div id="loading" class="loader loader-index"></div>
 <div class="absolute z-50 w-full top-0 left-0 bg-transparent text-white">
     <?php
 
     include $header;
 ?>
 </div>
-<div id="loading" class="loader loader-index"></div>
 <script>
     window.addEventListener("load", () => {
         const loader = document.querySelector(".loader");
@@ -48,10 +48,11 @@ $footer='../src/components/footer.php';
     <div class="overlay"></div>
 </div>
 
-
+<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
 <?php
 include $footer;
 
 ?>
+</div>
 </body>
 </html>

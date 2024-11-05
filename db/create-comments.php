@@ -1,3 +1,5 @@
+<?php      include('../db/db.php');  ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,18 +13,14 @@
 <body>
 
 <?php
-// Hata raporlamayı etkinleştir
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include('db.php');
 
-// Formdan gelen verileri al
 $id = $_POST['id'] ?? null;
 $type = $_POST['type'] ?? null;
 $yorum = $_POST['yorum'] ?? null;
 
-// Veri kontrolü
 if (!$id) {
     echo "ID eksik. Lütfen tekrar deneyin.";
     exit;
@@ -36,30 +34,26 @@ if (!$yorum) {
     exit;
 }
 
-// Yorumun nereye yapılacağını kontrol et
 if ($type == 'haber') {
-    // Haber yorumu ekleme sorgusu
     if (mysqli_query($deneme, "INSERT INTO comments(user_id, news_id, comment, created_at) 
         VALUES(" . $_SESSION['user']['id'] . ", '" . $id . "', '" . htmlspecialchars($yorum) . "', NOW())")) {
         echo "Yorum başarıyla eklendi.";
         header("Refresh:2; ../pages/haberler.php");
-        exit; // header'dan sonra çıkış yap
+        exit;
     } else {
         die("Hata: Kayıt işlemi gerçekleşmedi.");
     }
 } elseif ($type == 'etkinlik') {
-    // Etkinlik yorumu ekleme sorgusu
     if (mysqli_query($deneme, "INSERT INTO comments(user_id, events_id, comment, created_at) 
         VALUES(" . $_SESSION['user']['id'] . ", '" . $id . "', '" . htmlspecialchars($yorum) . "', NOW())")) {
         echo "Yorum başarıyla eklendi.";
         header("Refresh:2; ../pages/etkinlikler.php");
-        exit; // header'dan sonra çıkış yap
+        exit;
     } else {
         die("Hata: Kayıt işlemi gerçekleşmedi.");
     }
 }
 
-// Bağlantıyı kapat
 $deneme->close();
 ?>
 

@@ -1,3 +1,5 @@
+<?php      include('../db/db.php');  ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,9 +15,6 @@
 </head>
 <body>
 <?php
-
-
-include 'db.php';
 
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();

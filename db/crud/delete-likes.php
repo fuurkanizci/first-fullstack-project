@@ -1,4 +1,4 @@
-<link rel="shortcut icon" href="../../src/assets/icos/favicon.ico" type="image/x-icon">
+
 
 <?php
 include '../db.php';

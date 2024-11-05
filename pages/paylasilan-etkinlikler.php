@@ -1,3 +1,4 @@
+<?php   include('../db/db.php'); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../plugins/fontawesome-free-6.6.0-web/css/fontawesome.css">
+    <link rel="stylesheet" href="../plugins/fontawesome-free-6.6.0-web/css/solid.min.css">
     <link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css">
     <link rel="stylesheet" href="style.css">
     <title>Etkinlikler</title>
@@ -14,6 +17,7 @@
 
 <body class="bg-orange-50">
 
+<div id="loading" class="loader loader-index"></div>
 <nav class="relative px-4 py-4 flex justify-between items-center ">
     <div class="lg:hidden">
         <button class="navbar-burger flex items-start text-[#f0a500] p-3">
@@ -23,13 +27,13 @@
             </svg>
         </button>
     </div>
-    <ul class="hidden absolute  mt-6 top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+    <ul class="burger-width justify-center hidden absolute  mt-6 top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./paylasilan-haberler.php">Paylaşılan Haberler</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./begeniler.php">Beğendiklerim</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./yorumlar.php">Yorumlarım</a></li>
-        <a id="logOutButton" class="  p-2 border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
+        <a id="logOutButton" class="  p-2  text-3xl border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
             <i class="fa-solid fa-right-from-bracket"></i>
         </a>
     </ul>
@@ -59,12 +63,9 @@
 </div>
 
 
-<form id="silForm" method="post" action="../db/crud/deletee.php">
+<form class="mt-12" id="silForm" method="post" action="../db/crud/deletee.php">
 
 <?php
-include('../db/db.php');
-var_dump($_SESSION['user']);
-return false;
     $userId = $_SESSION['user']['id'];
     $sorgu = "SELECT * FROM events WHERE user_id='$userId'";
     $data = $deneme->query($sorgu);
@@ -80,7 +81,7 @@ return false;
                     <input type='checkbox' class='event-checkbox' name='events_ids[]' value='" . htmlspecialchars($row['id']) . "' onchange='checkCheckboxes()'>
                     <a href='../db/crud/deletee.php?id=" . htmlspecialchars($row['id']) . "&type=event' class='p-2 border border-0 rounded-2xl text-red-600 mr-5 hover:bg-[#ff0000ab] hover:text-black'>Sil</a>
                     <a href='updatee-from.php?id=" . htmlspecialchars($row['id']) . "' class='p-2 border border-0 rounded-2xl text-green-600 mr-5 hover:bg-[#11a411b0] hover:text-black mb-3'>Güncelle</a>
-                    <hr class='mt-4 color-black border-1 h-[2px] bg-black'>
+                    <hr class='mt-4 '>
                 </div>";
         }
     } else {
@@ -88,7 +89,7 @@ return false;
     }
     ?>
 
-    <button id='topluSilme' type='submit' name='sil' class='mt-4 p-2 bg-red-600 text-white rounded' disabled>Seçili Etkinlikleri Sil</button>
+    <div class="flex flex-row justify-center"><button id='topluSilme' type='submit' name='sil'  class="p-2  rounded-2xl text-red-600 bg-red-100 hover:bg-red-200" disabled>Seçili Etkinlikleri Sil</button></div>
 </form>
 
 <a class='' href='./etkinlik-ekleme.php'>
@@ -131,12 +132,10 @@ return false;
             alert('Seçili etkinlik yok. Lütfen silmek için en az bir etkinlik seçin.');
             event.preventDefault();
         } else {
-            // Kullanıcıdan onay al
             return confirm('Seçili etkinlikleri silmek istediğinize emin misiniz?');
         }
     };
     document.addEventListener('DOMContentLoaded', function() {
-        // Hamburger menüyü açma kapama işlemleri
         const burger = document.querySelector('.navbar-burger');
         const menu = document.querySelector('.navbar-menu');
 
@@ -162,4 +161,11 @@ return false;
     });
 </script>
 </body>
+<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
+    <?php
+    $footer='../src/components/footer.php';
+    include $footer;
+
+    ?>
+</div>
 </html>

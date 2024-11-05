@@ -1,4 +1,4 @@
-
+<?php   include('../db/db.php'); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,14 +21,14 @@
             </svg>
         </button>
     </div>
-    <ul class="hidden absolute mt-6 top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+    <ul class="burger-width hidden absolute mt-6 top-1/2 left-1/2  justify-center      gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./paylasilan-haberler.php">Paylaşılan Haberler</a></li>
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./paylasilan-etkinlikler.php">Paylaşılan Etkinlikler</a></li>
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./begeniler.php">Beğendiklerim</a></li>
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./yorumlar.php">Yorumlarım</a></li>
-        <a id="logOutButton" class="  p-2 border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
+        <a id="logOutButton" class="  p-2  text-3xl border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
             <i class="fa-solid fa-right-from-bracket"></i>
         </a>
     </ul>
@@ -52,7 +52,7 @@
                 <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./paylasilan-etkinlikler.php">Paylaşılan Etkinlikler</a></li>
                 <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./begeniler.php">Beğendiklerim</a></li>
                 <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./yorumlar.php">Yorumlarım</a></li>
-                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="../db/logout.php">Çıkış</a></li>
+                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400  hover:bg-red-200 hover:text-[red]  rounded" href="../db/logout.php">Çıkış</a></li>
             </ul>
         </div>
     </nav>

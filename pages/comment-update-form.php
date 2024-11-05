@@ -1,3 +1,4 @@
+<?php      include('../db/db.php');  ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +12,6 @@
 </head>
 <body class="bg-gray-800">
 <?php
-include '../db/db.php';
 $comment_id = $_GET['id'];
 
 
@@ -47,5 +47,10 @@ if ($row) {
 $stmt->close();
 $deneme->close();
 ?>
+    <?php
+    $footer='../src/components/footer.php';
+    include $footer;
+
+    ?>
 </body>
 </html>

@@ -26,11 +26,10 @@ if (isset($_POST['sil'])) {
         $sorgu = "DELETE FROM events WHERE id IN ($ids_string)";
         if (mysqli_query($deneme, $sorgu) === false) {
             die("Hata: " . mysqli_error($deneme));
-            var_dump($deneme);
-            return false ;
+
         }
     }
-    header("../../pages/paylasilan-etkinlikler.php");
+    header("Location:../../pages/paylasilan-etkinlikler.php");
     exit;
 }
 ob_end_flush();

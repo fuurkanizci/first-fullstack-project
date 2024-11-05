@@ -1,3 +1,4 @@
+<?php      include('../db/db.php');  ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,7 +31,7 @@
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./haberler.php">Haberler</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
-        <a id="logOutButton" class="  p-2 border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
+        <a id="logOutButton" class="  p-2  text-3xl border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
             <i class="fa-solid fa-right-from-bracket"></i>
         </a>
     </ul>
@@ -69,7 +70,6 @@
     }
 </style>
 <?php
-include('../db/db.php');
 $sesUser = $_SESSION['user']['id'];
 
 $sorgu = "SELECT * FROM events";
@@ -185,7 +185,9 @@ if ($data->num_rows > 0) {
 
 ?>
 
-
+<?php $footer = '../src/components/footer.php';
+ include  $footer;
+?>
 <script>
     window.addEventListener("load", () => {
         const loader = document.querySelector(".loader");
@@ -235,7 +237,6 @@ if ($data->num_rows > 0) {
         replyForm.style.display = replyForm.style.display === "none" ? "block" : "none";
     }
     document.addEventListener('DOMContentLoaded', function() {
-        // Hamburger menüyü açma kapama işlemleri
         const burger = document.querySelector('.navbar-burger');
         const menu = document.querySelector('.navbar-menu');
 
@@ -260,6 +261,12 @@ if ($data->num_rows > 0) {
         });
     });
 </script>
+<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
+    <?php
+    $footer='../src/components/footer.php';
+    include $footer;
 
+    ?>
+</div>
 </body>
 </html>

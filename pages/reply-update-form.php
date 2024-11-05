@@ -1,3 +1,5 @@
+<?php
+include('../db/db.php'); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +13,6 @@
 </head>
 <body class="bg-gray-800">
 <?php
-include '../db/db.php';
 $reply_id = $_GET['id'];
 
 
@@ -47,5 +48,12 @@ if ($row) {
 $stmt->close();
 $deneme->close();
 ?>
+<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
+    <?php
+    $footer='../src/components/footer.php';
+    include $footer;
+
+    ?>
+</div>
 </body>
 </html>

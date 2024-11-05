@@ -1,6 +1,6 @@
-<?php
+<?php include 'db.php';
 echo "<link rel='shortcut icon' href='../src/assets/icos/favicon.ico' type='image/x-icon'>";
-include 'db.php';
+
 include "mail.php";
 $newsTitle=$_POST["haber_basligi"];
 $newsAbout=$_POST["haber_konusu"];

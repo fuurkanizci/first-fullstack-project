@@ -106,4 +106,11 @@ include "../db/sign-up.php";
 
 </script>
 </body>
+<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
+    <?php
+    $footer='../src/components/footer.php';
+    include $footer;
+
+    ?>
+</div>
 </html>
