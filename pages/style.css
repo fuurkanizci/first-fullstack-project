@@ -163,3 +163,17 @@ ul li a {
 .burger-width{
     width: 100% !important;
 }
+.sect-margin{
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+@media (min-width: 320px) {
+    .sect-margin {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+
+    }
+}
+.z{
+    z-index: 50 !important;
+}

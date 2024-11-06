@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../src/components/loading/loading.css">
 </head>
 
-<body class="bg-orange-50">
+<body class="bg-orange-100">
 
 <div id="loading" class="loader loader-index"></div>
 <nav class="relative px-4 py-4 flex justify-between items-center ">
@@ -27,8 +27,8 @@
             </svg>
         </button>
     </div>
-    <ul class="burger-width justify-center hidden absolute  mt-6 top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-        <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
+    <ul class="hidden absolute  mt-6 top-1/2 left-1/2 md:w-[66%] gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:justify-center lg:items-center lg:w-[64%] lg:space-x-6">
+    <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./paylasilan-haberler.php">Paylaşılan Haberler</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./begeniler.php">Beğendiklerim</a></li>
@@ -95,7 +95,11 @@
 <a class='' href='./etkinlik-ekleme.php'>
     <img src='../src/assets/icos/plus.png' class='absolute top-4 right-4 border border-green-500 p-3 rounded-full hover:bg-green-500' alt='add'/>
 </a>
+<?php
+$footer='../src/components/footer.php';
+include $footer;
 
+?>
 <script>
     window.addEventListener("load", () => {
         const loader = document.querySelector(".loader");
@@ -161,11 +165,5 @@
     });
 </script>
 </body>
-<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
-    <?php
-    $footer='../src/components/footer.php';
-    include $footer;
 
-    ?>
-</div>
 </html>

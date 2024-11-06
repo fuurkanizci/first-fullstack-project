@@ -32,15 +32,18 @@ $data = $deneme->query($sorgu);
 
     <link rel="stylesheet" href="../src/components/loading/loading.css">
 </head>
-<body class="bg-orange-50">
+<body class="bg-orange-100">
+
+
+<div id="loading" class="loader loader-index w-full h-full"></div>
+
+
 
 <a href='./haber-ekleme.php'>
     <img src='../src/assets/icos/plus.png'
-         class='absolute top-4 right-4 border border-green-600 p-3 rounded-full hover:bg-green-500' alt='add'/>
+         class='absolute top-4 right-4  border-green-600 p-3 rounded-full hover:bg-green-500' alt='add'/>
 </a>
 
-
-<div id="loading" class="loader loader-index"></div>
 
 <nav class="relative px-4 py-4 flex justify-between items-center ">
     <div class="lg:hidden">
@@ -51,7 +54,7 @@ $data = $deneme->query($sorgu);
             </svg>
         </button>
     </div>
-    <ul class="hidden absolute  mt-6 top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:justify-center lg:items-center lg:w-[64%] lg:space-x-6">
+    <ul class="hidden absolute  mt-6 top-1/2 left-1/2 md:w-[66%] gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:justify-center lg:items-center lg:w-[64%] lg:space-x-6">
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./etkinlikler.php">Etkinlikler</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
@@ -107,8 +110,8 @@ if ($data->num_rows > 0) {
         $userCount = mysqli_fetch_assoc($userResult);
 
         echo '
-        <div class="max-sm:px-[10rem]">
-            <section class=" w-[30rem] bg-gray-300  p-2 md:p-6 rounded-2xl border border-gray-300  mx-auto mt-[15vh]   max-md:w-[24rem] ">
+        <div class="flex flex-col ">
+            <section class="  w-[30rem] bg-stone-300 p-2 md:p-6 rounded-2xl  border-gray-300 mx-auto  mt-[15vh]  sm:w-[19rem]   max-md:w-[19rem] ">
                 <details open class="border-b border-gray-300">
                     <summary class="outline-none list-none py-6 text-lg font-bold cursor-pointer relative flex justify-between rounded-lg select-none hover:after:opacity-75 focus-visible:ring-4 focus-visible:ring-gray-100">
                         <div style="font-weight: bold; font-size: 20px;">' . htmlspecialchars($row["baslik"]) . '</div>
@@ -269,6 +272,10 @@ if ($data->num_rows > 0) {
             return false;
         });
     });
+
+
+
+
 </script>
     <?php
     $footer='../src/components/footer.php';

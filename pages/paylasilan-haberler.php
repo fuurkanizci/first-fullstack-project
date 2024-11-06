@@ -30,17 +30,18 @@
             </svg>
         </button>
     </div>
-    <ul class=" burger-width justify-center my-12 pb-12 hidden absolute  top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+    <ul class=" burger-width justify-between my-12 pb-12 hidden absolute  top-1/2 left-1/2 2xl:mx-7 !max-lg:mx-4 gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./paylasilan-etkinlikler.php">Paylaşılan
                 Etkinlikler</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./begeniler.php">Beğendiklerim</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./yorumlar.php">Yorumlarım</a></li>
-        <a id="logOutButton"
+       <li> <a id="logOutButton"
            class="  p-2  text-3xl border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
             <i class="fa-solid fa-right-from-bracket"></i>
-        </a>
+        </a></li>
+        <li><a class='p-2 text-3xl border-none  rounded-full hover:text-green-500 hover:bg-green-200' href='./haber-ekleme.php'><i class="fa-solid fa-plus"></i></a></li>
     </ul>
 </nav>
 <div class="navbar-menu relative z-50 hidden">
@@ -107,16 +108,21 @@
         echo "<div class='p-4'>Herhangi bir haber bulunamadı.</div>";
     }
 
-    echo "<a class='' href='./haber-ekleme.php'><img src='../src/assets/icos/plus.png' class='absolute top-4 right-4 border border-green-500 p-3 rounded-full hover:bg-green-500' alt='add'/></a>";
+
     ?>
 
     <div class="flex flex-row justify-center">
-        <button id='topluSilme' type='submit' name='sil'  class="p-2  rounded-2xl text-red-600 bg-red-100 hover:bg-red-200" disabled>Seçili
+        <button id='topluSilme' type='submit' name='sil'
+                class="p-2  rounded-2xl text-red-600 bg-red-100 hover:bg-red-200" disabled>Seçili
             Haberleri Sil
         </button>
     </div>
 </form>
+<?php
+$footer = '../src/components/footer.php';
+include $footer;
 
+?>
 <script>
     window.addEventListener("load", () => {
         const loader = document.querySelector(".loader");
@@ -187,12 +193,7 @@
         });
     });
 </script>
-</body>
-<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
-    <?php
-    $footer='../src/components/footer.php';
-    include $footer;
 
-    ?>
-</div>
+</body>
+
 </html>
