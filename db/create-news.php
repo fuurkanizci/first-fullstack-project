@@ -10,7 +10,7 @@ $news=$_POST["haber"];
 $userId=$_SESSION["user"]['id'];
 if(mysqli_query($deneme, "INSERT INTO news(baslik, kategori, haber, user_id ) VALUES('".$newsTitle."' ,'".$newsAbout."', '".$news."', '".$userId."')") OR DIE ("Hata: Kayıt İşlemi Gerçekleşmedi.")) {
     echo mail_gonder("Yeni haber Eklendi", $newsTitle, $newsAbout, $news, $userId, "furkanizci_10@icloud.com");
-  header("Refresh:2; ../pages/haberler.php");
+  header("Location: ../pages/haberler.php");
 }
 else
     echo "Kaydetmedi";

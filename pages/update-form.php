@@ -17,7 +17,7 @@ include('../db/db.php'); ?>
 </head>
 
 
-<div id="loading"  class="loader loader-index"></div>
+<div id="loading"  class="loader loader-index w-full h-full"></div>
 <script>
     window.addEventListener("load", () => {
         const loader = document.querySelector(".loader");

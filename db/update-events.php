@@ -8,7 +8,7 @@ $event=$_POST["events"];
 if(mysqli_query($deneme, "INSERT INTO events(baslik, icerik, kategori ) VALUES('".$eventsTitle."' ,'".$eventsAbout."', '".$event."')") OR DIE ("Hata: Güncelleme İşlemi Gerçekleşmedi.")) {
     echo mail_gonder("Etkinlik Güncellendi", $eventsTitle, $eventsAbout, $event, "furkanizci_10@icloud.com");
     echo "Etkinlik Güncellendi Yönlendiriliyorsunuz.";
-    header("Refresh:2; ../pages/etkinlikler.php");
+    header("Location: ../pages/etkinlikler.php");
 }
 else
     echo "Güncellenmedi";

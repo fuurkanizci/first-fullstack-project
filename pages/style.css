@@ -151,28 +151,27 @@ ul li a {
     left: 0;
     transition: width 0.4s ease;
 }
-
+.anim-foot:hover {
+    color: #f0a500;
+}
 .anim-foot:hover::after {
     width: 100%;
 }
 
-.anim-foot:hover {
-    color: #f0a500;
-}
 
-.burger-width{
-    width: 100% !important;
-}
+
+
 .sect-margin{
     margin-left: auto !important;
     margin-right: auto !important;
 }
-@media (min-width: 320px) {
-    .sect-margin {
-        margin-left: 1rem !important;
-        margin-right: 1rem !important;
+@media (min-width: 1638px) {
+
+    .m-1638{
+        margin-left:5rem !important;
 
     }
+
 }
 .z{
     z-index: 50 !important;

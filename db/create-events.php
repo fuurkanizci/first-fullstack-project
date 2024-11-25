@@ -10,7 +10,7 @@ $event=$_POST["events"];
 $userId=$_SESSION["user"]['id'];
 if(mysqli_query($deneme, "INSERT INTO events(baslik, kategori, icerik, user_id ) VALUES('".$eventsTitle."' ,'".$eventsAbout."', '".$event."', '".$userId."')") OR DIE ("Hata: Kayıt İşlemi Gerçekleşmedi.")) {
     echo mail_gonder("Yeni Etkinlik Eklendi", $eventsTitle, $eventsAbout, $event, $userId, "furkanizci_10@icloud.com");
-    header("Refresh:2; ../pages/etkinlikler.php");
+    header("Location: ../pages/etkinlikler.php");
 }
     else
 echo "Kaydetmedi";

@@ -22,34 +22,36 @@
 
 
 
-<body class="bg-orange-100">
+<body class="bg-orange-100" style="details::-webkit-details-marker {
+  display: none;
+}">
 
 
 <div id="loading" class="loader loader-index w-full h-full"></div>
 
 
-<a href='./etkinlik-ekleme.php'>
-    <img src='../src/assets/icos/plus.png'
-         class='absolute top-4 right-4  border-green-500 p-3 rounded-full hover:bg-green-500' alt='add'/>
-</a>
+
 
 
 <nav class="relative px-4 py-4 flex justify-between items-center ">
-    <div class="lg:hidden">
-        <button class="navbar-burger flex items-start text-[#f0a500] p-3">
+    <div class="lg:hidden ">
+        <button class="navbar-burger fixed top-4 left-4 flex items-start text-[#f0a500] p-3">
             <svg class="block h-6 w-6 fill-current " viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <title>Mobile menu</title>
                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
             </svg>
         </button>
     </div>
-    <ul class="hidden md:w-[66%] absolute mt-6 top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-[%64] lg:space-x-6">
+    <ul class="hidden md:w-[66%] justify-center absolute mt-6 top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-[%64] lg:space-x-6">
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./haberler.php">Haberler</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
-        <a id="logOutButton" class="  p-2  text-3xl border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
+        <li> <a id="logOutButton" class="  p-2  text-3xl border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
             <i class="fa-solid fa-right-from-bracket"></i>
-        </a>
+        </a></li>
+        <li> <a class='p-2 text-3xl border-none  rounded-full hover:text-green-500 hover:bg-green-200' href='./etkinlik-ekleme.php'>
+                <i class="fa-solid fa-plus"></i>
+            </a></li>
     </ul>
 
 
@@ -68,13 +70,27 @@
                 <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./index.php">Ana Sayfa</a></li>
                 <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./haberler.php">Haberler</a></li>
                 <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./hareketlerim.php">Hareketlerim</a></li>
-                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="../db/logout.php">Çıkış</a></li>
-            </ul>
+                <li class="mb-1"><a
+                            class="block p-4 text-sm font-semibold text-gray-400 hover:bg-green-300 hover:text-green-500 rounded"
+                            href="./etkinlik-ekleme.php">Etkinlik Ekle</a></li>
+                <li class="mb-1">
+                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400  hover:bg-red-200 hover:text-[red]  rounded" href="../db/logout.php">Çıkış</a></li>
+           </ul>
         </div>
     </nav>
 </div>
 
+<?php
 
+if (isset($_SESSION['user']['name'])) {
+    echo '
+<div class="fixed top-5 right-4 text-3xl text-black z-50 border rounded-full p-3 bg-white w-auto inline-flex 
+            max-lg:top-4 max-lg:right-4 max-lg:text-lg max-lg:text-end max-lg:border max-lg:w-auto">
+       ' . htmlspecialchars($_SESSION['user']['name']) . '
+    </div>';
+
+}
+?>
 
 
 <style>
@@ -110,10 +126,12 @@ if ($data->num_rows > 0) {
         $commentResult = mysqli_query($deneme, $commentQuery);
 
         echo '
-        <div class="flex flex-col ">
-                    <section class="  w-[30rem] bg-stone-300 p-2 md:p-6 rounded-2xl  border-gray-300 mx-auto  mt-[15vh]  sm:w-[19rem]   max-md:w-[19rem] ">
-         <details open class="border-b border-gray-300">
-                    <summary class="outline-none list-none py-6 text-lg font-bold cursor-pointer relative flex justify-between rounded-lg select-none hover:after:opacity-75 focus-visible:ring-4 focus-visible:ring-gray-100">
+       <div class="flex flex-col" style="padding-left: 0; background-image: none; -webkit-appearance: none;">
+            <section class="  w-[34rem] bg-stone-300 p-2 md:p-6 rounded-2xl  border-gray-300 mx-auto  mt-[15vh]  max-sm:w-[16rem]   max-md:w-[24rem] ">  
+        
+        
+         <details open class="border-b border-gray-300" >
+                    <summary class="outline-none list-none py-6 text-lg font-bold  relative flex justify-between rounded-lg select-none hover:after:opacity-75 focus-visible:ring-4 focus-visible:ring-gray-100">
                         <div style="font-weight: bold; font-size: 20px;">' . htmlspecialchars($row["baslik"]) . '</div>
                     </summary>
                     <article class="animate-slide-in">

@@ -22,10 +22,10 @@ if (isset($_POST['silReply'])) {
         $sorgu = "DELETE FROM replies WHERE id IN ($ids_string)";
         if (mysqli_query($deneme, $sorgu) === false) {
             die("Hata: " . mysqli_error($deneme));
+
         }
     }
     header("Location: ../../pages/yorumlar.php");
     exit;
 }
-ob_end_flush();
 ?>

@@ -38,7 +38,7 @@ if ($type == 'haber') {
     if (mysqli_query($deneme, "INSERT INTO comments(user_id, news_id, comment, created_at) 
         VALUES(" . $_SESSION['user']['id'] . ", '" . $id . "', '" . htmlspecialchars($yorum) . "', NOW())")) {
         echo "Yorum başarıyla eklendi.";
-        header("Refresh:2; ../pages/haberler.php");
+        header("Location: ../pages/haberler.php");
         exit;
     } else {
         die("Hata: Kayıt işlemi gerçekleşmedi.");
@@ -47,7 +47,7 @@ if ($type == 'haber') {
     if (mysqli_query($deneme, "INSERT INTO comments(user_id, events_id, comment, created_at) 
         VALUES(" . $_SESSION['user']['id'] . ", '" . $id . "', '" . htmlspecialchars($yorum) . "', NOW())")) {
         echo "Yorum başarıyla eklendi.";
-        header("Refresh:2; ../pages/etkinlikler.php");
+        header("Location: ../pages/etkinlikler.php");
         exit;
     } else {
         die("Hata: Kayıt işlemi gerçekleşmedi.");

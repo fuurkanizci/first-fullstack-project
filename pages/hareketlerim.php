@@ -28,7 +28,7 @@ $header_activities='../src/components/header-hareketlerim.php';
 
 </head>
 <body class="h-full w-full  overflow-hidden bg-orange-50">
-
+<div id="loading"  class="loader loader-index w-full h-full"></div>
 <div class="absolute z-50 w-full top-0 left-0 bg-transparent text-white">
     <?php
 
@@ -39,7 +39,7 @@ $header_activities='../src/components/header-hareketlerim.php';
     <img class="w-full h-screen object-cover " src="../src/assets/imgs/activities.png" alt="asd">
     <div class="overlay"></div>
 </div>
-<div id="loading"  class="loader loader-index"></div>
+
 
 
 

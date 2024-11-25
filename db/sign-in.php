@@ -30,13 +30,13 @@ if (isset($_POST['giris'])) {
     if ($result->num_rows > 0) {
 
         $user = $result->fetch_assoc();
-        header("Refresh:2 ../pages/index.php");
+        header("Location: ../pages/index.php");
         echo " <div><img
 class='w-full h-screen object-cover  ' src='../src/assets/imgs/welcome.jpg' alt='welcomePage'></div>";
         $_SESSION['user'] = $user;
 
     } else {
-      header("Refresh:2 ../pages/login.php");
+      header("Location: ../pages/login.php");
       echo " <div>
  <img class='w-full h-screen object-cover  ' src='../src/assets/imgs/try-again.jpg' alt='tryAgainPage'>
 </div>";

@@ -1,4 +1,4 @@
-<?php   include('../db/db.php'); ?>
+<?php include('../db/db.php'); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,7 +19,7 @@
 
 <div id="loading" class="loader loader-index"></div>
 <nav class="relative px-4 py-4 flex justify-between items-center ">
-    <div class="lg:hidden">
+    <div class="xl:hidden">
         <button class="navbar-burger flex items-start text-[#f0a500] p-3">
             <svg class="block h-6 w-6 fill-current " viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <title>Mobile menu</title>
@@ -27,17 +27,22 @@
             </svg>
         </button>
     </div>
-    <ul class="hidden absolute  mt-6 top-1/2 left-1/2 md:w-[66%] gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:justify-center lg:items-center lg:w-[64%] lg:space-x-6">
+    <ul class=" w-[63%]  justify-between my-12 pb-12 hidden absolute 2xl top-1/2 left-1/2 2xl:mx-7 !max-lg:mx-4 gap-12 transform -translate-y-1/2 -translate-x-1/2 xl:flex lg:mx-auto xl:flex lg:items-center lg:w-auto lg:space-x-6">
     <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
-        <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./paylasilan-haberler.php">Paylaşılan Haberler</a></li>
+        <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./paylasilan-haberler.php">Paylaşılan
+                Haberler</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./begeniler.php">Beğendiklerim</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./yorumlar.php">Yorumlarım</a></li>
-        <a id="logOutButton" class="  p-2  text-3xl border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
-            <i class="fa-solid fa-right-from-bracket"></i>
-        </a>
+        <li><a id="logOutButton"
+               class="  p-2  text-3xl border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+        </li>
+       <li> <a class='p-2 text-3xl border-none  rounded-full hover:text-green-500 hover:bg-green-200' href='./etkinlik-ekleme.php'>
+               <i class="fa-solid fa-plus"></i>
+        </a></li>
     </ul>
-
 
 
 </nav>
@@ -46,17 +51,35 @@
     <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-orange-50 border-r overflow-y-auto">
         <div class="flex items-center mb-8">
             <button class="navbar-close">
-                <svg class="h-6 w-6 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <svg class="h-6 w-6 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
             </button>
         </div>
         <div>
             <ul>
-                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./index.php">Ana Sayfa</a></li>
-                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./hareketlerim.php">Hareketlerim</a></li>
-                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./paylasilan-haberler.php">Paylaşılan Haberler</a></li>
-                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./begeniler.php">Beğendiklerim</a></li>
-                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./yorumlar.php">Yorumlarım</a></li>
-                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="../db/logout.php">Çıkış</a></li>
+                <li class="mb-1"><a
+                            class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded"
+                            href="./index.php">Ana Sayfa</a></li>
+                <li class="mb-1"><a
+                            class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded"
+                            href="./hareketlerim.php">Hareketlerim</a></li>
+                <li class="mb-1"><a
+                            class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded"
+                            href="./paylasilan-haberler.php">Paylaşılan Haberler</a></li>
+                <li class="mb-1"><a
+                            class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded"
+                            href="./begeniler.php">Beğendiklerim</a></li>
+                <li class="mb-1"><a
+                            class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded"
+                            href="./yorumlar.php">Yorumlarım</a></li>
+                <li class="mb-1"><li class="mb-1"><a
+                            class="block p-4 text-sm font-semibold text-gray-400 hover:bg-green-300 hover:text-green-500 rounded"
+                            href="./etkinlik-ekleme.php">Etkinlik Ekle</a></li>
+                <li class="mb-1"><a
+                            class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded"
+                            href="../db/logout.php">Çıkış</a></li>
             </ul>
         </div>
     </nav>
@@ -65,14 +88,14 @@
 
 <form class="mt-12" id="silForm" method="post" action="../db/crud/deletee.php">
 
-<?php
+    <?php
     $userId = $_SESSION['user']['id'];
     $sorgu = "SELECT * FROM events WHERE user_id='$userId'";
     $data = $deneme->query($sorgu);
 
     if ($data && $data->num_rows > 0) {
         while ($row = $data->fetch_assoc()) {
-            echo "<div style='padding: 0px 95px;' class='px-[30rem]'>
+            echo "<div style='padding: 0px 20px;' class='px-[30rem]'>
                     <div style='font-weight: bold; font-size: 20px;'>" . htmlspecialchars($row['baslik']) . "</div>
                     <div style='height: 10px;'></div>
                     <div>" . htmlspecialchars($row['icerik']) . "</div>
@@ -89,14 +112,15 @@
     }
     ?>
 
-    <div class="flex flex-row justify-center"><button id='topluSilme' type='submit' name='sil'  class="p-2  rounded-2xl text-red-600 bg-red-100 hover:bg-red-200" disabled>Seçili Etkinlikleri Sil</button></div>
+    <div class="flex flex-row justify-center">
+        <button id='topluSilme' type='submit' name='sil'
+                class="p-2  rounded-2xl text-red-600 bg-red-100 hover:bg-red-200" disabled>Seçili Etkinlikleri Sil
+        </button>
+    </div>
 </form>
 
-<a class='' href='./etkinlik-ekleme.php'>
-    <img src='../src/assets/icos/plus.png' class='absolute top-4 right-4 border border-green-500 p-3 rounded-full hover:bg-green-500' alt='add'/>
-</a>
 <?php
-$footer='../src/components/footer.php';
+$footer = '../src/components/footer.php';
 include $footer;
 
 ?>
@@ -122,7 +146,8 @@ include $footer;
 
         button.disabled = !isChecked;
     }
-    document.getElementById("silForm").onsubmit = function(event) {
+
+    document.getElementById("silForm").onsubmit = function (event) {
         const checkboxes = document.querySelectorAll('.event-checkbox');
         let isChecked = false;
 
@@ -139,19 +164,19 @@ include $footer;
             return confirm('Seçili etkinlikleri silmek istediğinize emin misiniz?');
         }
     };
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const burger = document.querySelector('.navbar-burger');
         const menu = document.querySelector('.navbar-menu');
 
         if (burger && menu) {
-            burger.addEventListener('click', function() {
+            burger.addEventListener('click', function () {
                 menu.classList.toggle('hidden');
             });
         }
 
         const closeButtons = document.querySelectorAll('.navbar-close, .navbar-backdrop');
         closeButtons.forEach(close => {
-            close.addEventListener('click', function() {
+            close.addEventListener('click', function () {
                 menu.classList.add('hidden');
             });
         });

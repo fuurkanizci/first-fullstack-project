@@ -13,7 +13,7 @@
 </head>
 <body>
 <nav class="relative px-4 py-4 flex justify-between items-center ">
-    <div class="lg:hidden">
+    <div class="xl:hidden">
         <button class="navbar-burger flex items-start text-[#f0a500] p-3">
             <svg class="block h-6 w-6 fill-current " viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <title>Mobile menu</title>
@@ -21,7 +21,7 @@
             </svg>
         </button>
     </div>
-    <ul class="burger-width hidden absolute mt-6 top-1/2 left-1/2  justify-center      gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+    <ul class="!w-[85%] hidden relative top-1/2 left-1/2  justify-center !w-full  m-1638 mt-12  gap-12 transform -translate-y-1/2 -translate-x-1/2 xl:flex lg:mx-auto xl:flex lg:items-center lg:w-auto lg:space-x-6">
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./paylasilan-haberler.php">Paylaşılan Haberler</a></li>
@@ -60,7 +60,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Hamburger menüyü açma kapama işlemleri
         const burger = document.querySelector('.navbar-burger');
         const menu = document.querySelector('.navbar-menu');
 

@@ -13,12 +13,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../plugins/node_modules/tailwindcss/tailwind.css">
     <link rel="stylesheet" href="../src/components/loading/loading.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <?php
 $userName=$_SESSION ['user']['name'];
 ?>
 
-<div id="loading"  class="loader loader-index"></div>
+<div id="loading"  class="loader loader-index w-full h-full"></div>
 <script>
     window.addEventListener("load", () => {
         const loader = document.querySelector(".loader");
@@ -63,12 +64,18 @@ $userName=$_SESSION ['user']['name'];
         Paylaş
     </button>
 </form>
-<div class="absolute z-50 w-full bottom-0 left-0 bg-transparent text-[white]">
-    <?php
-    $footer='../src/components/footer.php';
-    include $footer;
 
-    ?>
-</div>
+<?php
+include('../db/db.php');
+include '../db/data.php'
+?>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../plugins/node_modules/tailwindcss/tailwind.css">
+<footer class="  bottom-4 w-full">
+    <div class="absolute bottom-[-40px] left-[45%] my-10 pb-2  ">
+        <p class="text-[#f0a500] mt-4"><a class="anim-foot" href="https://www.instagram.com/furkanizci10/profilecard/?igsh=MTc2aXpoY2psYngzZA=="><?= $designed ?></a></p>
+    </div>
+
+</footer>
 </body>
 </html>

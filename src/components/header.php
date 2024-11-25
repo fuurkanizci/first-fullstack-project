@@ -1,4 +1,4 @@
-<?php include '../../db/db.php'?>
+
 
 <!doctype html>
 <html lang="en">
@@ -22,7 +22,7 @@
             </svg>
         </button>
     </div>
-    <ul class="hidden absolute top-1/2 left-1/2  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-[85%] lg:space-x-6">
+    <ul class="hidden relative justify-center top-1/2 left-1/2   !w-full  gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-[85%] lg:space-x-6">
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./haberler.php">Haberler</a></li>
         <li><a class="text-3xl text-white  hover:text-[#f0a500]" href="./etkinlikler.php">Etkinlikler</a></li>
@@ -35,7 +35,7 @@
 
 
 </nav>
-<div class="navbar-menu relative z-50 hidden">
+<div class="navbar-menu fixed z-50 hidden">
     <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
     <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-orange-50 border-r overflow-y-auto">
         <div class="flex items-center mb-8">

@@ -18,11 +18,12 @@
     <link rel="icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../src/components/loading/loading.css">
 </head>
-<body class="bg-orange-50">
+
+<body class="bg-orange-100">
 
 <div id="loading" class="loader loader-index"></div>
 <nav class="relative px-4 py-4 flex justify-between items-center ">
-    <div class="lg:hidden">
+    <div class="xl:hidden">
         <button class="navbar-burger flex items-start text-[#f0a500] p-3">
             <svg class="block h-6 w-6 fill-current " viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <title>Mobile menu</title>
@@ -30,7 +31,7 @@
             </svg>
         </button>
     </div>
-    <ul class=" burger-width justify-between my-12 pb-12 hidden absolute  top-1/2 left-1/2 2xl:mx-7 !max-lg:mx-4 gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+    <ul class=" !w-[85%] justify-between my-12 pb-12 hidden absolute  top-1/2 left-1/2 2xl:mx-7 !max-lg:mx-4 gap-12 transform -translate-y-1/2 -translate-x-1/2 xl:flex lg:mx-auto xl:flex lg:items-center lg:w-auto lg:space-x-6">
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./paylasilan-etkinlikler.php">Paylaşılan
@@ -73,14 +74,26 @@
                             class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded"
                             href="./yorumlar.php">Yorumlarım</a></li>
                 <li class="mb-1"><a
-                            class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded"
+                            class="block p-4 text-sm font-semibold text-gray-400 hover:bg-green-300 hover:text-green-500 rounded"
+                                href="./haber-ekleme.php">Haber Ekle</a></li>
+                <li class="mb-1"><a
+                            class="block p-4 text-sm font-semibold text-gray-400 hover:bg-red-300    hover:text-red-500 rounded"
                             href="../db/logout.php">Çıkış</a></li>
             </ul>
         </div>
     </nav>
 </div>
 
+<?php
 
+if (isset($_SESSION['user']['name'])) {
+    echo '
+    <div class="fixed top-5 left-4 text-3xl text-black z-50 border rounded-full p-3 bg-white">
+         ' . htmlspecialchars($_SESSION['user']['name']) . '
+    </div>';
+
+}
+?>
 <form class="mt-12" id="silForm" method="post" action="../db/crud/delete.php">
     <?php
 
@@ -91,7 +104,7 @@
 
     if ($data && $data->num_rows > 0) {
         while ($row = $data->fetch_assoc()) {
-            echo "<div style='padding: 0px 95px;'>
+            echo "<div style='padding: 0px 20px;'>
                 <div style='font-weight: bold; font-size: 20px;'>" . htmlspecialchars($row['baslik']) . "</div>
                 <div style='height: 10px;'></div>
                 <div>" . htmlspecialchars($row['haber']) . "</div>
@@ -151,7 +164,7 @@ include $footer;
         button.disabled = !isChecked;
     }
 
-    document.getElementById("silForm").onsubmit = function (event) {
+    document.getElementById("silForm").onsubmit = function (news) {
         const checkboxes = document.querySelectorAll('.news-checkbox');
         let isChecked = false;
 
@@ -163,7 +176,7 @@ include $footer;
 
         if (!isChecked) {
             button.disabled = !isChecked;
-            event.preventDefault();
+            news.preventDefault();
         } else {
             return confirm('Seçili haberleri silmek istediğinize emin misiniz?');
         }

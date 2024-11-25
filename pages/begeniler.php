@@ -18,7 +18,8 @@
     <link rel="shortcut icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
     <link rel="icon" href="../src/assets/icos/favicon.ico" type="image/x-icon">
 </head>
-<body class="bg-orange-50">
+
+<body class="bg-orange-100">
 
 <div id="loading" class="loader loader-index"></div>
 <nav class="relative px-4 py-4 flex justify-between items-center">
@@ -108,7 +109,7 @@ if ($data->num_rows > 0) {
         }
     }
 } else {
-    echo "<div class='px-[30rem] text-black'>Henüz beğenilen hiçbir içerik yok.</div>";
+    echo "<div class='px-[20rem] max-md:px-12 flex align-center justify-center text-black'>Henüz beğenilen hiçbir içerik yok.</div>";
 }
 ?>
 </div>

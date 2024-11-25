@@ -39,11 +39,6 @@ $data = $deneme->query($sorgu);
 
 
 
-<a href='./haber-ekleme.php'>
-    <img src='../src/assets/icos/plus.png'
-         class='absolute top-4 right-4  border-green-600 p-3 rounded-full hover:bg-green-500' alt='add'/>
-</a>
-
 
 <nav class="relative px-4 py-4 flex justify-between items-center ">
     <div class="lg:hidden">
@@ -54,13 +49,16 @@ $data = $deneme->query($sorgu);
             </svg>
         </button>
     </div>
-    <ul class="hidden absolute  mt-6 top-1/2 left-1/2 md:w-[66%] gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:justify-center lg:items-center lg:w-[64%] lg:space-x-6">
+    <ul class="hidden absolute justify-center mt-6 top-1/2 left-1/2 md:w-[66%] gap-12 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:justify-center lg:items-center lg:w-[64%] lg:space-x-6">
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./index.php">Ana Sayfa</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./etkinlikler.php">Etkinlikler</a></li>
         <li><a class="text-3xl text-black  hover:text-[#f0a500]" href="./hareketlerim.php">Hareketlerim</a></li>
-        <a id="logOutButton" class="  p-2  text-3xl border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
+        <li><a id="logOutButton" class="  p-2  text-3xl border-none hover:border-[red] rounded-full hover:text-[#ff0000] hover:bg-[#FF000028]">
             <i class="fa-solid fa-right-from-bracket"></i>
-        </a>
+        </a></li>
+        <li> <a class='p-2 text-3xl border-none  rounded-full hover:text-green-500 hover:bg-green-200' href='./haber-ekleme.php'>
+                <i class="fa-solid fa-plus"></i>
+            </a></li>
     </ul>
 
 
@@ -79,8 +77,11 @@ $data = $deneme->query($sorgu);
                 <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./index.php">Ana Sayfa</a></li>
                 <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./etkinlikler.php">Etkinlikler</a></li>
                 <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="./hareketlerim.php">Hareketlerim</a></li>
-                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-[#f0a500] rounded" href="../db/logout.php">Çıkış</a></li>
-            </ul>
+                <li class="mb-1"><a
+                            class="block p-4 text-sm font-semibold text-gray-400 hover:bg-green-300 hover:text-green-500 rounded"
+                            href="./haber-ekleme.php">Haber Ekle</a></li>
+                <li class="mb-1"><a class="block p-4 text-sm font-semibold text-gray-400  hover:bg-red-200 hover:text-[red]  rounded" href="../db/logout.php">Çıkış</a></li>
+>            </ul>
         </div>
     </nav>
 </div>
@@ -111,7 +112,7 @@ if ($data->num_rows > 0) {
 
         echo '
         <div class="flex flex-col ">
-            <section class="  w-[30rem] bg-stone-300 p-2 md:p-6 rounded-2xl  border-gray-300 mx-auto  mt-[15vh]  sm:w-[19rem]   max-md:w-[19rem] ">
+            <section class="  w-[34rem] bg-stone-300 p-2 md:p-6 rounded-2xl  border-gray-300 mx-auto  mt-[15vh]  max-sm:w-[16rem]   max-md:w-[24rem] ">  
                 <details open class="border-b border-gray-300">
                     <summary class="outline-none list-none py-6 text-lg font-bold cursor-pointer relative flex justify-between rounded-lg select-none hover:after:opacity-75 focus-visible:ring-4 focus-visible:ring-gray-100">
                         <div style="font-weight: bold; font-size: 20px;">' . htmlspecialchars($row["baslik"]) . '</div>
